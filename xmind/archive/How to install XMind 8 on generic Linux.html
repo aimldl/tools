@@ -1,0 +1,496 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>How to install XMind 8 on generic Linux</title>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="1jevk2nc7qn9a8ra8lifmb23pc">How to install XMind 8 on generic Linux</a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="How to install XMind 8 on generic Linux_files/images/How to install XMind 8 on generic Linux.jpg"></div>
+<h2 class="topic">
+<a name="1mq6jahs6gajod4eujv3745klh">Prepare files</a>
+</h2>
+<h3 class="topic">
+<a name="48db6p1rndm7n7offi18p241o1">&nbsp;Download from http://www.xmind.net/download/linux/</a>
+</h3>
+<h3 class="topic">
+<a name="3ue6bita86rsvba0nkon3ntskc">&nbsp;&nbsp;Ubuntu</a>
+</h3>
+<h3 class="topic">
+<a name="4g4u5c5srkr6cl3b8ulrueo3dd">&nbsp;&nbsp;&nbsp;Click "Download XMind for Linux"</a>
+</h3>
+<h3 class="topic">
+<a name="7ibmd6ckll2ricobm1bm8927qu">&nbsp;&nbsp;&nbsp;Click "Save File" and hit "OK"</a>
+</h3>
+<h2 class="topic">
+<a name="788a1u29nj6s205c89rcpn2jr5">Extract</a>
+</h2>
+<h3 class="topic">
+<a name="0jtvv3vbm32kb63daqmqdefmds">&nbsp;Change directory to ~/Downloads</a>
+</h3>
+<h3 class="topic">
+<a name="2aa5p44g9mn4o7tpprj9qggt5k">&nbsp;&nbsp;~$ cd ~/Downloads&#13;
+~/Downloads$ ls&#13;
+xmind-8-update7-linux.zip&#13;
+~/Downloads$</a>
+</h3>
+<h3 class="topic">
+<a name="33bmpetbol9fiscd7s3tr18r49">&nbsp;Extract the file to directory xmind with the -d option</a>
+</h3>
+<h3 class="topic">
+<a name="7lis6eqs2dlvjukml616ucpov2">&nbsp;&nbsp;~/Downloads/xmind$$ unzip xmind-8-linux.zip -d xmind</a>
+</h3>
+<h2 class="topic">
+<a name="3h59vm0gmsl0bmsk6104gq7t3g">Move to /opt/</a>
+</h2>
+<h3 class="topic">
+<a name="4m09q07t6o151fgi0mou4n9u41">&nbsp;~/Downloads$sudo mv xmind /opt</a>
+</h3>
+<h3 class="topic">
+<a name="2l29klnia3cmnbo20lo09csjhq">&nbsp;Error</a>
+</h3>
+<h3 class="topic">
+<a name="3jaq6qch3mhb1uh1gna2njq11s">&nbsp;&nbsp;"your account" is not in the sudoers file. This incident will be reported</a>
+</h3>
+<h3 class="topic">
+<a name="3a21m5n57qtoikpsnbdn2shtok">&nbsp;&nbsp;"mv: cannot move 'xmind' to '/opt/xmind' : Directory not empty</a>
+</h3>
+<h3 class="topic">
+<a name="3a3skdsa3iu762ecqha0l7cgt0">&nbsp;&nbsp;&nbsp;~/Downloads$sudo mv xmind /opt/</a>
+</h3>
+<h3 class="topic">
+<a name="2rnsr44oc2lbbcmqs5k3rmnb33">&nbsp;&nbsp;&nbsp;gives the "Directory not empty" error. Use xmind/* instead of xmind</a>
+</h3>
+<h2 class="topic">
+<a name="12mhc2b2aoidto2nt91ugpd5gb">Prepare directories</a>
+</h2>
+<h3 class="topic">
+<a name="06lmbktgmd7b72bfpm29aafglc">&nbsp;Allow writes to</a>
+</h3>
+<h3 class="topic">
+<a name="18ja7rr48qm6c4c8p85f3dgmdk">&nbsp;&nbsp;configuration directory</a>
+</h3>
+<h3 class="topic">
+<a name="2lqbufb23nqfflcnt7daomfgve">&nbsp;&nbsp;&nbsp;$ sudo chmod a+w /opt/xmind/XMind_amd64/configuration</a>
+</h3>
+<h3 class="topic">
+<a name="1c70q5gkrj6m8lg6qennn2p49o">&nbsp;&nbsp;data directory</a>
+</h3>
+<h3 class="topic">
+<a name="01abjc2im09o71qn14h8h3h2n8">&nbsp;&nbsp;&nbsp;$ sudo mkdir -p /opt/xmind/workspace</a>
+</h3>
+<h3 class="topic">
+<a name="4tfh8fbpjvh3lpk1psjc1k42jd">&nbsp;&nbsp;&nbsp;$ sudo chmod a+w /opt/xmind/workspace</a>
+</h3>
+<h2 class="topic">
+<a name="67r1rf49d9rv0ijro58aa1t532">Edit configuration file /opt/xmind/XMind_amd64/XMind.ini</a>
+</h2>
+<h3 class="topic">
+<a name="6m818eutmv6o9g8jofqh3gu3tf">&nbsp;$ sudo nano /opt/xmind/XMind_amd64/XMind.ini</a>
+</h3>
+<h3 class="topic">
+<a name="7e2ncs88206pdg6m6mdncpb1g1">&nbsp;Old</a>
+</h3>
+<h3 class="topic">
+<a name="3dddcjvqnql4l6hshfpmlnmjcg">&nbsp;&nbsp;-configuration
+./configuration
+-data
+../workspace
+-startup
+../plugins/org.eclipse.equinox.launcher_1.3.200.v20160318-1642.jar
+--launcher.library
+../plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.400.v20160518-1444
+--launcher.defaultAction
+openFile
+--launcher.GTK_version
+2
+-eclipse.keyring
+@user.home/.xmind/secure_storage_linux
+-vmargs
+-Dfile.encoding=UTF-8
+</a>
+</h3>
+<h3 class="topic">
+<a name="3vc8mj0ia6giai09tqa4udnm9c">&nbsp;New</a>
+</h3>
+<h3 class="topic">
+<a name="635hmaitd7c8qj7fu00rmted7c">&nbsp;&nbsp;-configuration
+/opt/xmind/Xmind_amd64/configuration
+-data
+/opt/xmind/workspace
+-startup
+/opt/xmind/plugins/org.eclipse.equinox.launcher_1.3.200.v20160318-1642.jar
+--launcher.library
+/opt/xmind/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.400.v20160
+--launcher.defaultAction
+openFile
+--launcher.GTK_version
+2
+-eclipse.keyring
+@user.home/.xmind/secure_storage_linux
+-vmargs
+-Dfile.encoding=UTF-8
+</a>
+</h3>
+<h3 class="topic">
+<a name="6fan9vvbrb5frfaunmepb96n71">&nbsp;&nbsp;&nbsp;Changes</a>
+</h3>
+<h3 class="topic">
+<a name="085sj368st8b5eg99bmhuuurt1">&nbsp;&nbsp;&nbsp;&nbsp;Line2 change: ./configuration</a>
+</h3>
+<h3 class="topic">
+<a name="7hi99ora2anraf7203arlv8os6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/opt/xmind/Xmind_amd64/configuration</a>
+</h3>
+<h3 class="topic">
+<a name="663sm2j4mvhhhkdjp3l8ailt0u">&nbsp;&nbsp;&nbsp;&nbsp;Line 4 change: ../workspace</a>
+</h3>
+<h3 class="topic">
+<a name="4br6dm42o98cjkj7l135u2t2uj">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/opt/xmind/workspace</a>
+</h3>
+<h3 class="topic">
+<a name="7ifm3lc1atrg7tmdggvneo9li7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This works, too. But I prefer not to make ~/workspace because the directory structure gets messy.</a>
+</h3>
+<h3 class="topic">
+<a name="1q9o3tmk5femh1uj7ausoae17l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/home/USERNAME/workspace</a>
+</h3>
+<h3 class="topic">
+<a name="0po3lusl44ub7sf5fnrjvhv7n9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.</a>
+</h3>
+<h3 class="topic">
+<a name="7uuesktls31e8lvjptfuk8if6d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/home/mrtonnet/workspace</a>
+</h3>
+<h3 class="topic">
+<a name="05uprn5hvbe7afrafpapj5qq9d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/home/the.kim/workspace</a>
+</h3>
+<h3 class="topic">
+<a name="6fn5sp4fe3uuupatfm5piglc74">&nbsp;&nbsp;&nbsp;&nbsp;Line 6 change: ../plugins/*.jar</a>
+</h3>
+<h3 class="topic">
+<a name="5qo9bq9bhqtf3v7kbjd418ac78">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/opt/xmind/plugins</a>
+</h3>
+<h3 class="topic">
+<a name="01e1n95ths46u920u98v3bktpa">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.g.</a>
+</h3>
+<h3 class="topic">
+<a name="06fpp3k79dl9cj7erikqng7sv9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line6: /opt/xmind/plugins/org.eclipse.equinox.launcher_1.3.200.v20160318-1642.jar</a>
+</h3>
+<h3 class="topic">
+<a name="2fadcu0lj8je37r25hr4v1bqnm">&nbsp;&nbsp;&nbsp;&nbsp;Line 8 change: ../plugins/*.v20160518-1444</a>
+</h3>
+<h3 class="topic">
+<a name="2b1v17iks3u84r0dunbvp7meou">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line8: /opt/xmind/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.400.v20160518-1444</a>
+</h3>
+<h3 class="topic">
+<a name="25hfpmjscmvl3tgdnr8ttncjab">&nbsp;&nbsp;&nbsp;&nbsp;If this doesn't work for line 6 &amp; 8, check the file names.</a>
+</h3>
+<h3 class="topic">
+<a name="4dr06lkl5ko0r1oodlm1u01d4p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ls /opt/xmind/plugins/org.eclipse.equinox.launcher_*</a>
+</h3>
+<h3 class="topic">
+<a name="7ntkccuk7nvfo5har9ga94bpgk">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ls /opt/xmind/plugins/org.eclipse.equinox.launcher.gtk*</a>
+</h3>
+<h3 class="topic">
+<a name="4vdh30aub286foii57209h08u2">&nbsp;Q: I don't want to create directory "workspace" under ~ or /home/the.kim/workspace. Can I move it under /opt/xmind?</a>
+</h3>
+<h3 class="topic">
+<a name="4kf4gu93v9d2o7ifjnf1aq6qtl">&nbsp;Subtopic 6</a>
+</h3>
+<h3 class="topic">
+<a name="2emcsgs2tcasok1u5rs9su4d3q">&nbsp;&nbsp;Subtopic 1</a>
+</h3>
+<h3 class="topic">
+<a name="0p4musa5v04ooih4nci4oik4df">&nbsp;&nbsp;$ ls
+drwxr-xr-x  2 root root   4096 Jul 17 16:33 workspace
+</a>
+</h3>
+<h3 class="topic">
+<a name="1luatsaeht9m7gu9t3j144dgtt">&nbsp;&nbsp;Subtopic 3</a>
+</h3>
+<h3 class="topic">
+<a name="02155cbot1bnmds1a32kr3o7q3">&nbsp;&nbsp;&nbsp;the.kim@ubuntu-gpu-office</a>
+</h3>
+<h3 class="topic">
+<a name="01h6o4adqhr5bssi6j6d47tcsj">&nbsp;&nbsp;&nbsp;&nbsp;/opt/xmind/XMind_amd64</a>
+</h3>
+<h3 class="topic">
+<a name="5g3ig5qsd6p4au6h1ri051p7jr">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ sudo nano XMind.ini</a>
+</h3>
+<h3 class="topic">
+<a name="2mq4cpq8ibjletkbm2nkc9f023">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-data
+/opt/xmind/workspace</a>
+</h3>
+<h2 class="topic">
+<a name="00ataskc6bvuvl8qc9mpenfs24">Prepare fonts</a>
+</h2>
+<h3 class="topic">
+<a name="75hbp1bd2jk65d26djr9b09h86">&nbsp;Create fonts directory</a>
+</h3>
+<h3 class="topic">
+<a name="74ioju5ruuicjlk7gje0aas1a1">&nbsp;&nbsp;$ sudo mkdir -p /usr/share/fonts/truetype/xmind</a>
+</h3>
+<h3 class="topic">
+<a name="5jgukipgcgaohl5dlt9q3t322j">&nbsp;Copy fonts</a>
+</h3>
+<h3 class="topic">
+<a name="5ql01fd861v7i28lef9ebcbin1">&nbsp;&nbsp;$ sudo cp -R /opt/xmind/fonts/* /usr/share/fonts/truetype/xmind/</a>
+</h3>
+<h3 class="topic">
+<a name="2bsrmhq64g442ppa9n4cngimac">&nbsp;Refresh font cache</a>
+</h3>
+<h3 class="topic">
+<a name="1ah1pppvv2gfc1chibomg345ue">&nbsp;&nbsp;$ sudo fc-cache -f</a>
+</h3>
+<h3 class="topic">
+<a name="1itc26h0rpghotedkjlp3q351n">&nbsp;&nbsp;It may take a while. Please wait. It took about 30 seconds to me.</a>
+</h3>
+<h2 class="topic">
+<a name="2fi2s61r6q0vpde9g55kj004ph">Create menu item</a>
+</h2>
+<h3 class="topic">
+<a name="56iinvipngubg0skg3t9a78bt6">&nbsp;Create file /usr/share/applications/xmind.desktop</a>
+</h3>
+<h3 class="topic">
+<a name="1vls8d4nfu813na787dmq8cnr9">&nbsp;&nbsp;[Desktop Entry]
+Name=Xmind8 Pro
+Exec=/opt/xmind/XMind_amd64/XMind %F
+Icon=/opt/xmind/xmind_icon.png
+GenericName=MindMap Editor
+Comment=Record and edit MindMap files
+Type=Application
+Categories=Utility;Editor;Application;Office
+StartupNotify=false
+Terminal=false</a>
+</h3>
+<h3 class="topic">
+<a name="1v1nsafd6kfv31hmgf81h812gr">&nbsp;Refresh gnome-shell if needed</a>
+</h3>
+<h3 class="topic">
+<a name="6jp5l4naapstjlae6dgh37udic">&nbsp;&nbsp;Press [Alt]+[F]</a>
+</h3>
+<h3 class="topic">
+<a name="13m8v0q70u9jdvcvrdhbs37toc">&nbsp;&nbsp;type r</a>
+</h3>
+<h3 class="topic">
+<a name="5jik93o0vs1pk7eoe0ftr0hv82">&nbsp;&nbsp;Press [Enter]</a>
+</h3>
+<h2 class="topic">
+<a name="4v5ekcalmc1qrul9katkqkjl3n">Download the icon.</a>
+</h2>
+<h3 class="topic">
+<a name="3esp5itje9m8lf6dnerbii9o42">&nbsp;Download the icon file</a>
+</h3>
+<h3 class="topic">
+<a name="3vp82mo7uvrr2i3d9ropasgksb">&nbsp;&nbsp;e.g.</a>
+</h3>
+<h3 class="topic">
+<a name="4gnuhc7on55hivdivobblpmmdl">&nbsp;&nbsp;&nbsp;</a>
+</h3>
+<p class="topicImage">
+<img height="100" src="How to install XMind 8 on generic Linux_files/10980bdf580de8d86a95a9ad1d1f2ff5821fd2600ff13cc635661139d0a9b7a5.png" width="100"></p>
+<h3 class="topic">
+<a name="496o2qigt1bgvp0l8gj5kdpuo3">&nbsp;&nbsp;at</a>
+</h3>
+<h3 class="topic">
+<a name="66911ggqnv5tujljm9nau633jb">&nbsp;&nbsp;&nbsp;http://s3.amazonaws.com/xmindnet/blog/en/new_branding_new_logo</a>
+</h3>
+<h3 class="topic">
+<a name="0rccfr4ds247p158blbbfpg5k8">&nbsp;&nbsp;&nbsp;http://www.xmind.net/blog/en/2013/11/</a>
+</h3>
+<h3 class="topic">
+<a name="0p3kp9gbfv9eueo6jv9fgscm6c">&nbsp;&nbsp;If the link is broken, google-search an Xmind icon file with "xmind icon" and download a .png or .xpm file.</a>
+</h3>
+<h3 class="topic">
+<a name="4fo11utbnav567c9vgd10ei3b1">&nbsp;Copy the downloaded file to /opt/xmind</a>
+</h3>
+<h3 class="topic">
+<a name="2j8ks42q520509of4hdlsse9kg">&nbsp;&nbsp;sudo mv ~/Download/new_branding_new_logo.png /opt/xmind</a>
+</h3>
+<h3 class="topic">
+<a name="22oncf03rbeug2s64i2vggidkp">&nbsp;Rename the file name to xmind_icon.png</a>
+</h3>
+<h3 class="topic">
+<a name="44ljot8j0lin6bscqev6q6ip53">&nbsp;&nbsp;sudo mv /opt/xmind/new_branding_new_logo.png /opt/xmind/xmind_icon.png</a>
+</h3>
+<h3 class="topic">
+<a name="0k5bmkvt3t89acs4ka4hn4trvr">&nbsp;Note</a>
+</h3>
+<h3 class="topic">
+<a name="3vki2oqvatl6e2njtkedcmooqf">&nbsp;&nbsp;If you want a different file name, it's fine as long as the new file name is identical to Icon=/opt/xmind/your_new_icon_file_name</a>
+</h3>
+<h2 class="topic">
+<a name="36sb13mcfi88gupg2frtselo78">Troubleshooting</a>
+</h2>
+<h3 class="topic">
+<a name="4qp89et3scblmpl19i1dgcl8r1">&nbsp;An error has occurred. See the log file</a>
+</h3>
+<h3 class="topic">
+<a name="6228o35n8u6cjvm4uuva3202pj">&nbsp;&nbsp;Error</a>
+</h3>
+<h3 class="topic">
+<a name="7r9n5pdegktald6mqp537muomr">&nbsp;&nbsp;&nbsp;java.io.FileNotFoundException: /opt/xmind/XMind_amd64/configuration/org.eclipse.osgi/.manager/.fileTableLock (Permission denied)</a>
+</h3>
+<h3 class="topic">
+<a name="7i6b69qpvoaf1ckdtnjm0igekc">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</h3>
+<p class="topicImage">
+<img height="364" src="How to install XMind 8 on generic Linux_files/6rh1qea6mgaabnb96qm3kjed67.png" width="790"></p>
+<h3 class="topic">
+<a name="4pjk574j2ss2quts2a5m3negmk">&nbsp;&nbsp;Hint</a>
+</h3>
+<h3 class="topic">
+<a name="2nevindcbm9pl2u0qgriah6n6e">&nbsp;&nbsp;&nbsp;the solution on most Linux distributions, including Linux Mint, Ubuntu, Fedora and Suse, is detailed in this xmind-dev group. I installed XMind in /etc/opt. As some paths and strings are outdated in the forum solution, here is my corrected xmind.ini file:</a>
+</h3>
+<h3 class="topic">
+<a name="3a3hie25amuoonl92hqfcm391n">&nbsp;&nbsp;&nbsp;The permission of the file is not given for the targe ID (the.kim)</a>
+</h3>
+<h3 class="topic">
+<a name="2cischn0r3kaovp5f10hl5ifgl">&nbsp;&nbsp;&nbsp;the.kim@ubuntu-gpu-office:/opt/xmind/XMind_amd64/configuration/org.eclipse.osgi/.manager$ ls -al
+-rw-rw-r--  1 mrtonnet mrtonnet    0 Jan 23 11:12 .fileTableLock</a>
+</h3>
+<h3 class="topic">
+<a name="4bb3jmu9h0lr1mau30tut8dina">&nbsp;&nbsp;Solution</a>
+</h3>
+<h3 class="topic">
+<a name="066d2mg6r5jq8bn1r2g3utosc4">&nbsp;&nbsp;&nbsp;I started over the installation with the new ID.</a>
+</h3>
+<h3 class="topic">
+<a name="1nt4nh44l1hie9iu4lhtjnra4a">&nbsp;The Icon's image is missing</a>
+</h3>
+<h3 class="topic">
+<a name="54lk43v0bl69tttqsp74hs8j42">&nbsp;&nbsp;Problem1</a>
+</h3>
+<h3 class="topic">
+<a name="4pfg92fb1938opfgc37u4tjlrr">&nbsp;&nbsp;&nbsp;</a>
+</h3>
+<p class="topicImage">
+<img src="How to install XMind 8 on generic Linux_files/5t3afchg9el0lveh6j2d218no7.png"></p>
+<h3 class="topic">
+<a name="3m4fb3d4l3332jivfskr05e8o5">&nbsp;&nbsp;Hint1</a>
+</h3>
+<h3 class="topic">
+<a name="3359kqojel90gl5it9j17oo4mh">&nbsp;&nbsp;&nbsp;xmind.desktop</a>
+</h3>
+<h3 class="topic">
+<a name="1ljenj1a91i8l2bf5r5laogjvc">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</h3>
+<p class="topicImage">
+<img src="How to install XMind 8 on generic Linux_files/6k0rt7n25s84nva0ciltbgv3md.png"></p>
+<h3 class="topic">
+<a name="643uqkd1p3vhh0m2c72ci8klp9">&nbsp;&nbsp;&nbsp;&nbsp;The location is wrong!</a>
+</h3>
+<h3 class="topic">
+<a name="4ashjokk844920j0c57pvo8jkm">&nbsp;&nbsp;Solution1</a>
+</h3>
+<h3 class="topic">
+<a name="0lnl181fqlnlrmedrn0kavo1bj">&nbsp;&nbsp;&nbsp;</a>
+</h3>
+<p class="topicImage">
+<img src="How to install XMind 8 on generic Linux_files/1fiijeo9hlgbo2og9rj7taohi5.png"></p>
+<h3 class="topic">
+<a name="7650bkfqprth9ssvv36ps5kan4">&nbsp;&nbsp;&nbsp;Correct "Icon" to the right location.</a>
+</h3>
+<h3 class="topic">
+<a name="4og62h78aeajld1u3lamt3vrh2">&nbsp;&nbsp;&nbsp;and then log out.</a>
+</h3>
+<h3 class="topic">
+<a name="5t9bqk7tcl4emp56kpbaieijr7">&nbsp;Error to launch the program</a>
+</h3>
+<h3 class="topic">
+<a name="075c3u41qvi3mkqbfal637j59j">&nbsp;&nbsp;Problem1</a>
+</h3>
+<h3 class="topic">
+<a name="2oharlgpjo2acepd11vs3rcvpn">&nbsp;&nbsp;&nbsp;</a>
+</h3>
+<p class="topicImage">
+<img src="How to install XMind 8 on generic Linux_files/2hiiss4sovk7h012q524qqvqg7.png"></p>
+<h3 class="topic">
+<a name="0d3uknukqroek9u6kdgf9m3bf3">&nbsp;&nbsp;Cause1</a>
+</h3>
+<h3 class="topic">
+<a name="02fdijg01i0c0559ds2608cqoc">&nbsp;&nbsp;&nbsp;/opt/xmind$ ls</a>
+</h3>
+<h3 class="topic">
+<a name="1dsj6cpd687tpqjoavggv2eh05">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</h3>
+<p class="topicImage">
+<img src="How to install XMind 8 on generic Linux_files/1gr1226ibgom3brbja36ssa27h.png"></p>
+<h3 class="topic">
+<a name="4vdi8uuiubvpu9aa7odg9pps2d">&nbsp;&nbsp;&nbsp;&nbsp;I see an unexpected directory Xmind_amd64 is created</a>
+</h3>
+<h3 class="topic">
+<a name="1ca86o11ibdsg0l3e457ablifl">&nbsp;&nbsp;&nbsp;Typo</a>
+</h3>
+<h3 class="topic">
+<a name="144bdhai22co8ku5ipqagrqlsb">&nbsp;&nbsp;&nbsp;&nbsp;/opt/xmind/XMind_amd64$ sudo nano XMind.ini</a>
+</h3>
+<h3 class="topic">
+<a name="0v57vvkmbmhnkffacru2f7t64p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</h3>
+<p class="topicImage">
+<img src="How to install XMind 8 on generic Linux_files/26dki8iam7eulu3nqc0av7mktn.png"></p>
+<h3 class="topic">
+<a name="02d5b0od112r2lpgquj5a3cvos">&nbsp;&nbsp;Solution1</a>
+</h3>
+<h3 class="topic">
+<a name="2kqq54shcqj7pc47sbgatpr5mi">&nbsp;&nbsp;&nbsp;Changed the typo</a>
+</h3>
+<h3 class="topic">
+<a name="3adnu004lhltp92u01e9bma66b">&nbsp;&nbsp;&nbsp;&nbsp;from</a>
+</h3>
+<h3 class="topic">
+<a name="4nd38g1mj5fnncc39v76d3unes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Xmind_amd64</a>
+</h3>
+<h3 class="topic">
+<a name="7r7fs57d3q11rvsmv8vu8jcli5">&nbsp;&nbsp;&nbsp;&nbsp;to</a>
+</h3>
+<h3 class="topic">
+<a name="61l27nhooqbpeeddebcer154mp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XMind_amd64</a>
+</h3>
+<h3 class="topic">
+<a name="2ei06lii8667strtrjf7v082gh">&nbsp;&nbsp;&nbsp;Success!</a>
+</h3>
+<h3 class="topic">
+<a name="5ou20e29drio7aq5no9tdcnva1">&nbsp;&nbsp;&nbsp;&nbsp;Now XMind works!</a>
+</h3>
+<h3 class="topic">
+<a name="2cg21hnios96s00e90f78u15q2">&nbsp;&nbsp;Verification1</a>
+</h3>
+<h3 class="topic">
+<a name="620do8eoq28o6vau7jnci8lpcc">&nbsp;&nbsp;&nbsp;</a>
+</h3>
+<p class="topicImage">
+<img src="How to install XMind 8 on generic Linux_files/1ae7h3g871bon6dbn2dph3833f.png"></p>
+<h3 class="topic">
+<a name="0818qo06shv0rk6oisbnfohih9">&nbsp;하위 토픽 4</a>
+</h3>
+<h3 class="topic">
+<a name="39fhgug0c1hb9e60h7bp735id6">&nbsp;&nbsp;하위 토픽 1</a>
+</h3>
+<h3 class="topic">
+<a name="076r30gceoqenn0sdijjqf061f">&nbsp;&nbsp;&nbsp;--launcher.library&#13;
+/opt/xmind/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.400.v20160</a>
+</h3>
+<h2 class="topic">
+<a name="7b6qi17b8qu8l971sbatjjhii4">Done</a>
+</h2>
+<h2 class="topic">
+<a name="1g3snubeonae8tl9ti6eftr9qt">References</a>
+</h2>
+<h3 class="topic">
+<a href="http://www.xmind.net/m/PuDC" name="7i39epr77idhd3ce86ircmul0u">&nbsp;How to install XMind 8 on generic Linux</a>
+</h3>
+<h3 class="topic">
+<a name="2gdritmlat97kq9pm5nav9s46h">&nbsp;&nbsp;I made minor corrections to this official version.</a>
+</h3>
+<h3 class="topic">
+<a href="https://askubuntu.com/questions/869848/how-to-install-run-xmind-v-8-in-ubuntu-16-04" name="34oscq36586ouvlaa8tai0mbk7">&nbsp;How to install &amp; run Xmind v. 8 in Ubuntu 16.04?</a>
+</h3>
+<h3 class="topic">
+<a href="http://libre-software.net/xmind-error/" name="1sgh74fpn7mjdhg2fnb702qeq3">&nbsp;XMind doesn&rsquo;t start on Linux (Eclipse Error)</a>
+</h3>
+</body>
+</html>
