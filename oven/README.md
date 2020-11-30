@@ -10,23 +10,6 @@
 
 
 
+## 페이지 결과 예
 
-
-<img src='images/[petCare] 기본 - 추가 정보.png'>
-
-
-
-<img src='images/[petCare] 친구 관리-메세지.png'>
-
-
-
-<img src='images/[petCare] 친구 관리-메세지-화면 표시.png'>
-
-
-
-<img src='images/[petCare] 친구 관리-산책 중 친구 맺기.png'>
-
-
-
-<img src='images/[petCare] 친구 관리-산책 중 친구 맺기-QR 코드 스캔.png'>
-
+<img src='images/oven-page_examples.png'>
