@@ -1,10 +1,12 @@
 * Draft: 2020-11-03 (Tue)
 
-# ICanNotes
+# ICanNote
 
 동영상 강의할 때 아주 편한 도구
 
-https://www.icanotes.com/
+홈페이지: http://icannote.com/
+
+<img src='images/icannote-quick_start.png'>
 
 
 
