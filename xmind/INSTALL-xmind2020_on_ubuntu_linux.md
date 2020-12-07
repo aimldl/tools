@@ -2,6 +2,28 @@
 
 # XMind 2020를 우분투 리눅스에 설치하기
 
+## 요약
+
+설치 파일 다운로드: https://www.xmind.net/xmind/thank-you-for-downloading/
+
+터미널에서 설치파을을 이용해서 설치
+
+```bash
+$ cd 다운로드
+$ sudo dpkg -i XMind-2020-for-Linux-amd-64bit-10.2.1-202008051959.deb
+$
+```
+
+프로그램 실행
+
+* 터미널에서 명령어로 실행
+
+```bash
+$ xmind
+```
+
+* `프로그램 표시`의 검색창에 `xmind`를 입력해서 XMind 아이콘이 나오면 클릭해서 실행
+
 ## 개요 (Overview)
 
 마인드 매핑 도구인 XMind의 최신 버전 XMind 2020를 설치해봅니다. 
@@ -33,7 +55,7 @@ XMind 8의 설치에 관해서는 아래 링크를 참고하세요.
 
 ### XMind 2020 페이지 https://www.xmind.net/xmind2020/
 
-우분투 리눅스에서 크롬 웹브라우저를 써서 XMind 2020 페이지에 접속해서 `Free Download`를 클릭할 경우 .rpm파일을 받게 됩니다.
+우분투 리눅스에서 크롬 웹브라우저를 써서 XMind 2020 페이지에 접속해서 `Free Download`를 클릭할 경우 .rpm파일을 받게 됩니다. (Ubuntu 18.04, 2020년 11월말 기준)
 
 <img src='images/xmind-homepage-xmind2020_page.png'>
 
