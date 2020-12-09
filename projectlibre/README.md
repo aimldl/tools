@@ -1,4 +1,5 @@
-##### aimldl/computing_environments/projectlibre/README.md
+* Rev.1: 2020-12-01 (Tue)
+* Draft: 2020-10-16 (Fri)
 
 ## [ProjectLibre](https://www.projectlibre.com/)
 Project Management software: alternative to Microsoft Project.
@@ -22,36 +23,4 @@ Project Management software: alternative to Microsoft Project.
 [ProjectLibre Youtube Channel](https://www.youtube.com/channel/UCpvll2xkdgLkj9cWQ2hm4PA)
 <img src='images/ProjectLibre-Youtube_channel.png'>
 
-## Download
-Go to SourceForge [download link](https://sourceforge.net/projects/projectlibre/files/latest/download) on the web browser and the download will start in 5 seconds.
 
-## Install
-```bash
-$ sudo dpkg -i projectlibre_1.9.1-1.deb 
-Selecting previously unselected package projectlibre.
-(Reading database ... 222696 files and directories currently installed.)
-Preparing to unpack projectlibre_1.9.1-1.deb ...
-Unpacking projectlibre (1.9.1-1) ...
-Setting up projectlibre (1.9.1-1) ...
-Processing triggers for mime-support (3.60ubuntu1) ...
-Processing triggers for shared-mime-info (1.9-2) ...
-$
-```
-## Run
-On terminal, run:
-```bash
-$ projectlibre &
-```
-On GUI, search and launch projectlibre as follows.
-<img src='images/ProjectLibre-Launch.png'>
-
-When ProjectLibre is launched for the first time,
-<img src='images/ProjectLibre-License.png'>
-
-<img src='images/ProjectLibre-email_address.png'>
-
-<img src='images/ProjectLibre-tip_of_the_day.png'>
-
-<img src='images/ProjectLibre-Launched_successfully.png'>
-
-The program is launched successfully.
