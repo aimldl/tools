@@ -4,7 +4,7 @@
 
 ## 요약
 
-설치 파일 다운로드: https://www.xmind.net/xmind/thank-you-for-downloading/
+설치 파일 다운로드: https://www.xmind.net/xmind/downloads/XMind-2020-for-Linux-amd-64bit-10.2.1-202008051959.deb
 
 터미널에서 설치파을을 이용해서 설치
 
