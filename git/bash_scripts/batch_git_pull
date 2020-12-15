@@ -35,7 +35,7 @@
 #   Note each value is delimited by a white space.
 
 # You may change this part
-target_repositories="aimldl.github.io coding environments keras pytorch tensorflow tools topics_in tests projects"
+target_repositories="aimldl.github.io coding environments pytorch tensorflow tools topics_in tests projects"
 # You may change this part
 
 # Don't change this part
