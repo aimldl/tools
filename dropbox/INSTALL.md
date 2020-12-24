@@ -1,3 +1,4 @@
+* Rev.1: 2020-12-24 (Thu)
 * Draft: 2020-11-19 (Thu)
 
 # Dropbox 설치하기
@@ -15,6 +16,22 @@ $ ~/.dropbox-dist/dropboxd
 * 웹브라우저에서 계정접속 권한을 묻는 페이지가 자동으로 런칭되면 수락한 후,
 * 드롭박스 계정에 있는 파일이 다운로드 될 때까지 기다리면 됩니다.
 * 파일의 위치는 `/home/user_id/Dropbox` 혹은 줄여서 `~/Dropbox`입니다.
+
+### 고려사항
+
+다음 명령어로 설치 가능하다고 하므로 고려할만 합니다.
+
+```bash
+$ dropbox
+
+Command 'dropbox' not found, but can be installed with:
+
+sudo apt install nautilus-dropbox
+
+$
+```
+
+
 
 ## 커맨드라인 명령어의 전체 출력 메세지
 
