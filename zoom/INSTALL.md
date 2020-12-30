@@ -2,9 +2,11 @@
 
 # How to Install Zoom
 
+Download Center: https://zoom.us/download
 
+## Linux
 
-## Ubuntu Linux (20.02)
+### Ubuntu Linux (20.02)
 
 Step 1. Download the installation file
 
