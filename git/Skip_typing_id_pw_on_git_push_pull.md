@@ -1,5 +1,4 @@
-##### aimldl/computing_environments/git/Skip_typing_id_pw_on_git_push_pull.md
-
+* Rev.1: 2021-01-09 (Sat)
 * Draft: 2020-01-28 (Tue)
 
 ## Entering the password every single time is cumbersome
@@ -23,3 +22,15 @@ How to set up git in order not to enter the ID and password each time is detaile
 [How do I ensure Git doesn't ask me for my GitHub username and password?](https://superuser.com/questions/199507/how-do-i-ensure-git-doesnt-ask-me-for-my-github-username-and-password)
 
 [How to save username and password in git?](https://stackoverflow.com/questions/35942754/how-to-save-username-and-password-in-git)
+
+
+
+Naver search: git 패스워드
+
+[Git 아이디 패스워드 입력 안하는 방법](https://webisfree.com/2017-05-19/git-%EC%95%84%EC%9D%B4%EB%94%94-%ED%8C%A8%EC%8A%A4%EC%9B%8C%EB%93%9C-%EC%9E%85%EB%A0%A5-%EC%95%88%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
+
+> Public 레퍼지토리의 경우
+
+[GitHub 아이디/패스워드 입력 없이 사용하는 방법](https://kibua20.tistory.com/88)
+
+> Private 레퍼지토리의 경우
