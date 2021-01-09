@@ -1,6 +1,9 @@
-* Rev.2: 2021-01-09 (Sat)
+##### aimldl > computing_environments > git > README.md
 * Rev.1: 2019-11-10 (Sun)
 * Draft: 2019-05-26 (Sun)
+# Git & Github
+For a quick start, refer to [Hello World, GitHub Guides](https://guides.github.com/activities/hello-world/).
+
 # Git
 Git is a distributed version-control system for tracking changes in source code during software development. Refer to [INSTALL.md](INSTALL.md) for installing and configuring the git command.
 
