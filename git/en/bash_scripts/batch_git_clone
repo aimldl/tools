@@ -2,6 +2,7 @@
 # batch_git_clone
 #   This script run `git clones` for all sub-directories of the target repositories.
 #
+# * Rev.6: 2021-01-11 (Mon)
 # * Rev.5: 2020-12-15 (Tue)
 # * Rev.4: 2020-12-09 (Wed)
 # * Rev.3: 2020-11-14 (Sat)
@@ -51,6 +52,7 @@ print_and_run() {
 }
 
 for repository in ${target_repositories}; do
-  print_and_run "git clone https://github.com/${github_user_id}/${repository}.git"
+  #print_and_run "git clone https://github.com/${github_user_id}/${repository}.git"  # https
+  print_and_run "git clone git@github.com:${github_user_id}/${repository}.git"  # ssh
 done
 # Don't change this part
