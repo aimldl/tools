@@ -12,3 +12,6 @@ https://zoom.us/
 
 줌을 사용하기 위해서는 설치를 해야합니다. [How to Install Zoom](INSTALL.md)을 참고하세요.
 
+## 줌에서 녹화하기
+
+[줌 (zoom)에서 수업 녹화는 어떻게 하나요?](https://www.honeyjem.com/kb/zoomrecording/)를 참고하세요.
