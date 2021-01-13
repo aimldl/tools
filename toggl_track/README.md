@@ -24,6 +24,9 @@ Check out the Integrations page now to see if your favourite tools are supported
 
 INCREASE YOUR PRODUCTIVITY
 Pomodoro mode
+
+<img src='images/toggle_track-pomodoro_mode.png'>
+
 Need help managing your time?
 
 Pomodoro® is a technique to help you focus on a task, by working hard for short intervals then taking a break.
