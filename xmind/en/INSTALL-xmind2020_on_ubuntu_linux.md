@@ -10,7 +10,7 @@
 
 https://www.xmind.net/xmind/downloads/XMind-2020-for-Linux-amd-64bit-10.2.1-202008051959.deb
 
-만약 위의 링크가 동작하지 않는다면 https://www.xmind.net/download/에 가서 직접 다운로드 하세요.
+만약 위의 링크가 동작하지 않는다면 https://www.xmind.net/download/ 에 가서 직접 다운로드 하세요.
 
 ### 2. 터미널에서 설치파일을 이용해서 설치
 
