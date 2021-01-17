@@ -18,32 +18,8 @@
 
 - [Plex Media Server Logs](https://support.plex.tv/articles/200250417-plex-media-server-log-files/)
 
-  
-
-Check that your media collection has been named and organized in a way that Plex will understand. If not, you may notice content isn’t recognized, is mis-matched, or not found at all.
-
-- Movies are gathered together in a “Movies” type folder, TV Shows in a “TV Shows” type folder, etc.
-
-- Movies are named as follows:
-
-  ```text
-  [Movie_Name (Release_Year)]
-  e.g., Avatar (2009).mp4
-  ```
-
-* TV Show episodes are named with the season and episode:
-
-```
-[Show Name SxxEyy]
-e.g., Dexter s01e01.mp4
-```
-
-* TV Show episodes are stored in their own folder as follows:
-
-```
-/TV Shows/Show Name/Season/episodes
-e.g., /TV Shows/Dexter/Season 01/Dexter s01e01.mp4
-```
+## Media library types and names
+Refer to [Setting media types](how_to/set_media_types.md).
 
 ### NAS Devices
 
