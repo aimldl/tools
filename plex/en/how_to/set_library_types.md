@@ -30,3 +30,4 @@ e.g., Dexter s01e01.mp4
 /TV Shows/Show Name/Season/episodes
 e.g., /TV Shows/Dexter/Season 01/Dexter s01e01.mp4
 ```
+Source: [Support](https://support.plex.tv/) > [Articles](https://support.plex.tv/articles/) > [Installation](https://support.plex.tv/articles/200288586-installation/)
