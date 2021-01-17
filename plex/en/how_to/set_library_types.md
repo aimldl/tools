@@ -31,3 +31,51 @@ e.g., Dexter s01e01.mp4
 e.g., /TV Shows/Dexter/Season 01/Dexter s01e01.mp4
 ```
 Source: [Support](https://support.plex.tv/) > [Articles](https://support.plex.tv/articles/) > [Installation](https://support.plex.tv/articles/200288586-installation/)
+
+## Music folders
+
+> ```text
+> /Media
+>    /Movies
+>       movie content
+>    /Music
+>       music content
+>    /TV Shows
+>       television content
+> ```
+
+- `Music/ArtistName/AlbumName/TrackNumber - TrackName.ext`
+
+> ```text
+> /Music
+>    /Pink Floyd
+>       /Wish You Were Here
+>          01 - Shine On You Crazy Diamond (Parts I-V).m4a
+>          02 - Welcome to the Machine.mp3
+>          03 - Have a Cigar.mp3
+>    /Foo Fighters
+>       /One By One
+>       /There is Nothing Left to Lose
+>    /U2
+>       /Joshua Tree
+> ```
+
+
+
+Various artists
+
+> ```text
+> /Music
+>    /Various Artists
+>       /Guardians Of The Galaxy - Awesome Mix Vol. 1
+>          01 - Hooked On A Feeling.mp3
+>          02 - Go All The Way.mp3
+>          03 - Spirit In The Sky.mp3
+>       /The Crow - Original Motion Picture Soundtrack
+>          01 - Burn.mp3
+>          02 - Golgotha Tenement Blues.mp3
+>          03 - Big Empty.mp3
+> ```
+
+
+Source: [Support](https://support.plex.tv/) > [Articles](https://support.plex.tv/articles/) > [Adding Music Media From Folders](https://support.plex.tv/articles/200265296-adding-music-media-from-folders/)
