@@ -19,7 +19,7 @@
 - [Plex Media Server Logs](https://support.plex.tv/articles/200250417-plex-media-server-log-files/)
 
 ## Media library types and names
-Refer to [Setting library types](how_to/set_library_types.md.md).
+Refer to [Setting library types](how_to/set_library_types.md).
 
 ### NAS Devices
 
