@@ -15,4 +15,4 @@
 * 압축을 해제한 후 설치를 진행합니다.
 * 설치 후 프로그램을 실행했을 때의 화면입니다.
 
-<img src='images/mobaxterm-initial_launch.png/>
+<img src='images/mobaxterm-initial_launch.png'>
