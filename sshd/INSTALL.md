@@ -6,6 +6,9 @@
 
 * 컴퓨터 (혹은 서버)에 sshd (SSH Daemon) 서버가 실행되고 있으면, ssh명령어를 써서 원격에서 접속할 수 있습니다. 
 * sshd를 설치하는 방법을 알아봅니다.
+* 참고 문서:
+  * Google search: sshd 설정 우분투 18.04
+  * [[Linux] Ubuntu 18.04 SSH서버 구축하기 및 SSH Root 계정 접속 설정 (Ubuntu OpenSSH Server)](https://antdev.tistory.com/48)
 
 ## Google search
 ubuntu 20.04 ssh 설치
