@@ -30,4 +30,5 @@ Max. 360 seconds for Tftp, Nfs and Cron
 ```
 
 설치 후 프로그램을 실행했을 때의 화면입니다.
-<img src='images/mobaxterm-initial_launch.png/>
+
+<img src='images/mobaxterm-initial_launch.png'>
