@@ -31,3 +31,7 @@ To setup the server, open a browser window and go to `http://local.nas.ip.addres
 
 **Related Page:** [Opening Plex Web App](https://support.plex.tv/articles/200288666-opening-plex-web-app/)
 **Related Page**: [Forums > Plex Media Server > NAS](https://forums.plex.tv/categories/nas)
+
+<img src='images/plex-how_plex_works.png'>
+
+<img src='images/plex-server_setup.png'>
