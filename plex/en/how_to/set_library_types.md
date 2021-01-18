@@ -60,8 +60,6 @@ Source: [Support](https://support.plex.tv/) > [Articles](https://support.plex.tv
 >       /Joshua Tree
 > ```
 
-
-
 Various artists
 
 > ```text
@@ -77,5 +75,34 @@ Various artists
 >          03 - Big Empty.mp3
 > ```
 
-
 Source: [Support](https://support.plex.tv/) > [Articles](https://support.plex.tv/articles/) > [Adding Music Media From Folders](https://support.plex.tv/articles/200265296-adding-music-media-from-folders/)
+
+Multi-disc
+``` text
+Music /
+   Artist /
+      Albumartist - Albumtitle /
+         1. trackartist - tracktitle.mp3
+         2. trackartist - tracktitle.mp3
+         ...
+```
+
+a multi-disc album
+
+``` text
+Music /
+   Artist /
+      Albumartist - Albumtitle /
+         Disc 1 /
+            1. trackartist - tracktitle.mp3
+            2. trackartist - tracktitle.mp3
+            ...
+         Disc 2 /
+            1. trackartist - tracktitle.mp3
+            2. trackartist - tracktitle.mp3
+            ...
+```
+source: [Organizing Music - Soundtracks and Various Artists (Hit collections)](https://forums.plex.tv/t/organizing-music-soundtracks-and-various-artists-hit-collections/121354)
+
+TODO:
+Source: [Support](https://support.plex.tv/) > [Articles](https://support.plex.tv/articles/) > [Your Media](https://support.plex.tv/articles/categories/your-media/) >  [Music Files (Naming and Organizing)}(https://support.plex.tv/articles/categories/your-media/naming-and-organizing-music-media/)
