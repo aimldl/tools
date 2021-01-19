@@ -5,6 +5,6 @@
 ## Ubuntu (18.04, 20.04)
 
 ```bash
-$ sudo snap install VLC
+$ sudo snap install vlc
 ```
 
