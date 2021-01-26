@@ -74,7 +74,44 @@ https://www.pyimagesearch.com/2018/05/28/ubuntu-18-04-how-to-install-opencv/
 
 ```bash
 $ wget https://github.com/opencv/opencv/archive/4.5.1.zip
+$ wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.5.1.zip
+$ unzip opencv_contrib.zip 
+
 ```
+```bash
+$ ls -d */
+opencv-4.5.1/  opencv_contrib-4.5.1/
+```
+
+```bash
+~/opencv$ ls
+opencv-4.5.1  opencv_contrib-4.5.1  opencv_contrib.zip
+(base) k8smaster@k8smaster-Alienware-Aurora-R7:~/opencv$ cd opencv-4.5.1/
+(base) k8smaster@k8smaster-Alienware-Aurora-R7:~/opencv/opencv-4.5.1$ cd build/
+(base) k8smaster@k8smaster-Alienware-Aurora-R7:~/opencv/opencv-4.5.1/build$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+> -D CMAKE_INSTALL_PREFIX=/usr/local \
+> -D WITH_TBB=OFF \
+> -D WITH_IPP=OFF \
+> -D WITH_1394=OFF \
+> -D BUILD_WITH_DEBUG_INFO=OFF \
+> -D BUILD_DOCS=OFF \
+> -D INSTALL_C_EXAMPLES=ON \
+> -D INSTALL_PYTHON_EXAMPLES=ON \
+> -D BUILD_EXAMPLES=OFF \
+> -D BUILD_TESTS=OFF \
+> -D BUILD_PERF_TESTS=OFF \
+> -D WITH_QT=OFF \
+> -D WITH_GTK=ON \
+> -D WITH_OPENGL=ON \
+> -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-4.5.1/modules \
+> -D WITH_V4L=ON  \
+> -D WITH_FFMPEG=ON \
+> -D WITH_XINE=ON \
+> -D BUILD_NEW_PYTHON_SUPPORT=ON \
+> -D OPENCV_GENERATE_PKGCONFIG=ON ../
+```
+
+
 
 <img src='images/opencv-homepage-releases-2021-01-25.png'>
 
