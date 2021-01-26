@@ -62,7 +62,7 @@ $ sudo apt install -y python2.7-dev python3-dev python-numpy python3-numpy
 $ sudo apt install -y python3-opencv
 ```
 
-TODO: start from here
+TODO: organize from here
 
 Google search: ubuntu 18.04 how to install opencv
 
@@ -115,7 +115,21 @@ opencv-4.5.1  opencv_contrib-4.5.1  opencv_contrib.zip
 
 <img src='images/opencv-homepage-releases-2021-01-25.png'>
 
-TODO
+```bash
+$ cat /proc/cpuinfo | grep processor | wc -l
+12
+$
+```
+
+```bash
+$ time make -j4
+```
+
+
+TODO: start from here
+https://webnautes.tistory.com/1186
+이제 컴파일 결과물을 설치합니다.
+
 
 https://medium.com/@theairbend3r/opencv4-1-0-ubuntu-18-04-anaconda-dc427aa216d9
 
