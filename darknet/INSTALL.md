@@ -67,3 +67,66 @@ $ ./darknet
 ```bash
 usage: ./darknet <function>
 ```
+
+### OpenCV
+
+### 문제
+
+다크넷을 컴파일할 때 OpenCV이 없으면, 다크넷을 실행할 때 `Not compiled with OpenCV`라는 메세지가 출력됩니다.
+
+```bash
+$ cd ~/darknet
+$ ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
+  ...
+data/dog.jpg: Predicted in 7056.965000 milli-seconds.
+bicycle: 99%
+dog: 100%
+truck: 93%
+Not compiled with OpenCV, saving to predictions.png instead
+$
+```
+
+### 설치하기
+
+(아나콘다가 설치되었고 darknet_with_opencv라는 가상환경이 만들어졌다고 가정)
+
+#### Step 1. 먼저 OpenCV를 설치합니다.
+
+```bash
+$ conda activate darknet_with_opencv
+$ conda install -c conda-forge -y opencv
+$ python -c 'import cv2; print(cv2.__version__)'
+$ pkg-config --modversion opencv
+```
+
+#### Step 2. 다크넷을 설치합니다.
+
+```bash
+$ git clone https://github.com/pjreddie/darknet
+$ wget https://pjreddie.com/media/files/yolov3.weights
+```
+
+#### Step 3. 다크넷을 실행해서 확인해봅니다.
+
+```bash
+$ ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
+  ...
+Loading weights from yolov3.weights...Done!
+data/dog.jpg: Predicted in 18.021478 seconds.
+dog: 100%
+truck: 92%
+bicycle: 99%
+$
+```
+
+* `Not compiled with OpenCV, saving to predictions.png instead`라는 메세지가 나오지 않습니다.
+* 그런데 `predictions.png`가 생성되었습니다.
+
+
+
+```bash
+$ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights
+Demo needs OpenCV for webcam images.
+$
+```
+
