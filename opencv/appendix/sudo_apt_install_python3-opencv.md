@@ -1,6 +1,6 @@
 * Draft: 2021-01-26 (Tue)
 
-# ModuleNotFoundError: No module named 'cv2'
+# `apt`를 이용해서 OpenCV 설치
 
 ## 개요
 
@@ -54,6 +54,8 @@ Google search: ubuntu 18.04 how to install opencv
 
 ## 문제
 
+### ModuleNotFoundError: No module named 'cv2'
+
 설치 후에 cv2 패키지를 찾지 못 합니다.
 
 ```bash
@@ -81,6 +83,8 @@ Use 'sudo apt autoremove' to remove it.
 $
 ```
 
+### `No package 'opencv' found`
+
 `pkg-config`명령어로 확인해도 `No package 'opencv' found`라고 나옵니다.
 
 ```bash
@@ -95,11 +99,6 @@ No package 'opencv' found
 $
 ```
 
-`libllvm9`를 제거합니다.
-
-```bash
-$ sudo apt autoremove -y
-```
-
 ## 힌트
 
+TODO: 일단 여기서 중단하고 다른 방법으로 설치를 진행해봅니다.
