@@ -2,6 +2,20 @@
 # install_opencv
 ###   * Draft: 2021-01-27 (Wed)
 
+## Step 0. Install Anaconda
+
+### Download
+
+wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
+
+### Install
+
+bash Anaconda3-2020.07-Linux-x86_64.sh
+
+### Create a virtual environment
+
+
+
 ## Step 1. Install dependencies
 sudo apt update
 sudo apt upgrade -y
