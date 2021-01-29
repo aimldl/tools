@@ -15,3 +15,7 @@
 <img src='images/opencv-deep_learning_face_detection_opencv.gif'>
 
 출처: [Face detection with OpenCV and deep learning](https://www.pyimagesearch.com/2018/02/26/face-detection-with-opencv-and-deep-learning/), Adrian Rosebrock, pyimagesearch
+
+
+
+https://eehoeskrap.tistory.com/355
