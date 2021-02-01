@@ -51,7 +51,7 @@ LICENSE.fuck  LICENSE.gpl  LICENSE.mit   Makefile    cfg        examples  python
 $
 ```
 
-``` 컴파일 후의 파일
+``` bash
 $ ls
 LICENSE       LICENSE.gpl   LICENSE.v1  backup   data      libdarknet.a   python   src
 LICENSE.fuck  LICENSE.meta  Makefile    cfg      examples  libdarknet.so  results
@@ -121,8 +121,6 @@ $
 
 * `Not compiled with OpenCV, saving to predictions.png instead`라는 메세지가 나오지 않습니다.
 * 그런데 `predictions.png`가 생성되었습니다.
-
-
 
 ```bash
 $ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights
