@@ -32,4 +32,5 @@
 
 * [cuda_tensorflow_opencv](https://github.com/datamachines/cuda_tensorflow_opencv)/[Dockerfile](https://github.com/datamachines/cuda_tensorflow_opencv/blob/master/Dockerfile)
   * This Dockerfile installs CUDA, TensorFlow, OpenCV and that's it.
+  * I wasn't able to use it for video. I felt like it's incomplete to do what I need.
 

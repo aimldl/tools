@@ -66,5 +66,3 @@ cd $BUILD_DIR
 make clean all
 make test
 ```
-
-## 

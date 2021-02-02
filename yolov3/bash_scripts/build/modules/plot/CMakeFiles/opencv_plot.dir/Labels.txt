@@ -1,0 +1,19 @@
+# Target labels
+ Extra
+ opencv_plot
+ Module
+# Source files and their labels
+/home/k8smaster/github/tools/yolov3/bash_scripts/opencv_contrib-master/modules/plot/include/opencv2/plot.hpp
+ Extra
+ opencv_plot
+ Module
+/home/k8smaster/github/tools/yolov3/bash_scripts/opencv_contrib-master/modules/plot/src/plot.cpp
+ Extra
+ opencv_plot
+ Module
+/home/k8smaster/github/tools/yolov3/bash_scripts/opencv_contrib-master/modules/plot/src/precomp.hpp
+ Extra
+ opencv_plot
+ Module
+/home/k8smaster/github/tools/yolov3/bash_scripts/build/cvconfig.h
+/home/k8smaster/github/tools/yolov3/bash_scripts/build/opencv2/opencv_modules.hpp

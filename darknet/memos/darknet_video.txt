@@ -10,7 +10,7 @@ $ sudo apt install -y python-opencv
 ```
 
 ### Verify
-```bash
+​```bash
 $ python -c 'import cv2 as cv; print(cv.__version__)'
 ```
 
@@ -32,4 +32,6 @@ ImportError: No module named 'cv2'
 ### Install
 ``bash
 $ sudo apt install -y python3-opencv
+```
+
 ```
