@@ -57,7 +57,7 @@ wget -O opencv.zip https://github.com/opencv/opencv/archive/master.zip
 wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/master.zip
 unzip opencv.zip
 unzip opencv_contrib.zip
-
+pkg-config
 ### Create build directory
 mkdir -p build && cd build
 
@@ -208,6 +208,28 @@ No package 'opencv4' found
 (base) $
 ```
 
+Google search: opencv pkg-config
+
+* [pkg-config can't find opencv](https://stackoverflow.com/questions/15113753/pkg-config-cant-find-opencv)
+
+  > - You need to have the package `libopencv-dev` installed. – user1252091 [Feb 27 '13 at 13:59](https://stackoverflow.com/questions/15113753/pkg-config-cant-find-opencv#comment21267327_15113753)
+  >
+  > - I had only installed libcv, I added libopencv and it worked. Thanks a lot. – [Clement Roblot](https://stackoverflow.com/users/1696480/clement-roblot) [Feb 27 '13 at 14:18](https://stackoverflow.com/questions/15113753/pkg-config-cant-find-opencv#comment21268124_15113753) 
+  > - It seems you have found your answer. Could you please answer your own question and accept it. – [aiao](https://stackoverflow.com/users/1009248/aiao) [Jan 14 '14 at 15:41](https://stackoverflow.com/questions/15113753/pkg-config-cant-find-opencv#comment31773833_15113753)
+  > - Installing that package solved my isssue – [Mitro](https://stackoverflow.com/users/1223817/mitro) [Jan 18 '15 at 13:36](https://stackoverflow.com/questions/15113753/pkg-config-cant-find-opencv#comment44408185_15113753)
+
+```bash
+$ sudo apt install -y libopencv-dev
+```
+
+를 설치해도 문제해결이 안 됐습니다.
+
+```bash
+$ pkg-config --cflags --libs opencv4
+```
+
+
+
 ### Python 패키지로 설치하기
 
 * PyPI (https://pypi.org/search/?q=opencv)
@@ -242,3 +264,10 @@ $ pip install opencv-python
 <img src='images/pkgs_org-ubuntu_18_04.png'>
 
 너무 많은 패키지가 있어서 선택도 어렵습니다.
+
+## 튜토리얼
+
+[How to install OpenCV 4 on Ubuntu](https://www.pyimagesearch.com/2018/08/15/how-to-install-opencv-4-on-ubuntu/), 2018-08-15
+
+
+
