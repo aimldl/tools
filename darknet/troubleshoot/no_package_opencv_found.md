@@ -10,14 +10,12 @@ After changing `Makefile` in the `darknet` directory
 $ nano Makefile
 ```
 
-from the default settings in the top 5 rows
+from the default settings in the top 3 rows
 
 ```makefile
 GPU=0
 CUDNN=0
 OPENCV=0
-OPENMP=0
-DEBUG=0
 ```
 
 to
@@ -26,8 +24,6 @@ to
 GPU=0
 CUDNN=0
 OPENCV=1
-OPENMP=0
-DEBUG=0
 ```
 
 the following errors are observed.

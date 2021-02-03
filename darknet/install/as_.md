@@ -77,7 +77,7 @@ Call Stack (most recent call first):
 --       AVX (4 files):             + SSSE3 SSE4_1 POPCNT SSE4_2 AVX
 --       AVX2 (27 files):           + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2
 --       AVX512_SKX (3 files):      + SSSE3 SSE4_1 POPCNT SSE4_2 FP16 FMA3 AVX AVX2 AVX_512F AVX512_COMMON AVX512_SKX
--- 
+-- pkg-config --modversion opencv4
 --   C/C++:
 --     Built as dynamic libs?:      YES
 --     C++ Compiler:                /usr/bin/c++  (ver 7.5.0)

@@ -15,7 +15,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 ModuleNotFoundError: No module named 'cv2'
->>> 와
+>>> 
 ```
 
 사용하기 위해서 OpenCV를 설치합니다.
@@ -39,7 +39,7 @@ $ ./install_opencv_in_linux
 (base) $ conda install -c conda-forge opencv
 ```
 
-[install_opencv_in_linux](bash_scripts/install_opencv_in_linux)
+### [install_opencv_in_linux](bash_scripts/install_opencv_in_linux)로 설치하기
 
 ```bash
 # Installation in Linux
@@ -71,9 +71,9 @@ cmake --build .
 sudo make install
 ```
 
-### 설치
+### 설치 시간 측정
 
-`time`명령어를 써서 시간을 확인해보니 설치에 약 30분 소요되었습니다.
+`time`명령어를 써서 시간을 확인해보니 설치에 약 30분이 소요되었습니다.
 
 ```bash
 (base) $ chmod +x install_opencv_in_linux 
@@ -89,6 +89,10 @@ sys	1m49.637s
 
 ### 설치 확인
 
+설치는 `python`명령어와 `pkg-config`명령어를 써서 확인할 수 있습니다.
+
+설치되지 않은 경우는 
+
 ```bash
 (base) $ python -c 'import cv2; print(cv2.__version__)'
 Traceback (most recent call last):
@@ -98,13 +102,65 @@ ModuleNotFoundError: No module named 'cv2'
 ```
 
 ```bash
-(base) $ pkg-config --modversion opencv4
-Package opencv4 was not found in the pkg-config search path.
-Perhaps you should add the directory containing `opencv4.pc'
+(base) $ pkg-config --modversion opencv
+Package opencv was not found in the pkg-config search path.
+Perhaps you should add the directory containing `opencv.pc'
 to the PKG_CONFIG_PATH environment variable
-No package 'opencv4' found
+No package 'opencv' found
 (base) $
 ```
+
+와 같은 메세지가 출력됩니다. 
+
+콘다 명령어로 설치할 경우
+
+* 파이썬에서 import는 잘 되지만,
+
+  ```bash
+  (base) $ python -c 'import cv2; print(cv2.__version__)'
+  4.2.0
+  (base) $
+  ```
+
+  혹은
+
+  ```bash
+  (base) $ python
+    ...
+  >>> import cv2
+  >>> exit()
+  (base) $
+  ```
+
+* `pkg-config`는 에러가 발생합니다.
+
+소스코드로 직접 컴파일했을 때
+
+* 파이썬에서 import도 잘 되고
+* `pkg-config`도 잘 동작했습니다. 예를 들면
+
+```bash
+(base) $ pkg-config --modversion opencv
+3.2.0
+(base) $ pkg-config --cflags opencv
+-I/usr/include/opencv
+(base) $ pkg-config --libs opencv
+-lopencv_shape -lopencv_stitching -lopencv_superres 
+  ...
+-lopencv_core
+$
+```
+
+> 주의: 웹문서 중 아래 명령어를 입력하는 경우를 봤습니다. 소스코드로 컴파일한 다음 위의 `pkg-config` 명령어가 잘 동작하더라도 아래 명령어는 실패합니다.
+>
+> ```bash
+> (base) $ pkg-config --modversion opencv4
+> Package opencv4 was not found in the pkg-config search path.
+> Perhaps you should add the directory containing `opencv4.pc'
+> to the PKG_CONFIG_PATH environment variable
+> No package 'opencv4' found
+> (base) $
+> ```
 
 ## 공식 문서의 설치 관련 정보
 
@@ -228,8 +284,6 @@ $ sudo apt install -y libopencv-dev
 $ pkg-config --cflags --libs opencv4
 ```
 
-
-
 ### Python 패키지로 설치하기
 
 * PyPI (https://pypi.org/search/?q=opencv)
@@ -269,5 +323,15 @@ $ pip install opencv-python
 
 [How to install OpenCV 4 on Ubuntu](https://www.pyimagesearch.com/2018/08/15/how-to-install-opencv-4-on-ubuntu/), 2018-08-15
 
+## 부록. 설치된 라이브러리 보는 방법
 
+Ubuntu 18.04에서 설치된 라이브러리를 다음 명령어로 볼 수 있습니다.
+
+```bash
+$ ls /usr/lib/x86_64-linux-gnu | grep libopencv
+libopencv_aruco.a
+  ...
+libopencv_xphoto.so.3.2.0
+$
+```
 

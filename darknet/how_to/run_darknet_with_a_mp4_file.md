@@ -10,3 +10,10 @@ Google search: [how to run darknet .mp4](https://www.google.com/search?q=how+to+
 * [Problem while trying to run a mp4-file #859](https://github.com/pjreddie/darknet/issues/859)
 
 TODO
+
+
+
+FPS:15.5
+
+15FPS 정도 나옴
+
