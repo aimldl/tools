@@ -1,3 +1,4 @@
+* Rev.1: 2021-01-15 (Fri)
 * Draft: 2020-11-19 (Thu)
 
 # XMind 2020를 우분투 리눅스에 설치하기
@@ -10,7 +11,7 @@
 
 https://www.xmind.net/xmind/downloads/XMind-2020-for-Linux-amd-64bit-10.2.1-202008051959.deb
 
-만약 위의 링크가 동작하지 않는다면 https://www.xmind.net/download/에 가서 직접 다운로드 하세요.
+만약 위의 링크가 동작하지 않는다면 https://www.xmind.net/download/ 에 가서 직접 다운로드 하세요.
 
 ### 2. 터미널에서 설치파일을 이용해서 설치
 
@@ -77,7 +78,20 @@ XMind 8의 설치에 관해서는 아래 링크를 참고하세요.
 
 * Linux (deb): `XMind-2020-for-Linux-amd-64bit-10.2.1-202008051959.deb`
 * Linux (rpm): `XMind-2020-for-Linux-x86-64bit-10.2.1-202008051959.rpm`
-  
+
+혹은 터미널에서
+```bash
+$ wget https://www.xmind.net/xmind/downloads/XMind-2020-for-Linux-amd-64bit-10.2.1-202008051959.deb
+```
+```
+  ...
+Saving to: ‘XMind-2020-for-Linux-amd-64bit-10.2.1-202008051959.deb’
+
+XMind-2020-for-Linux-amd-64bit-10.2.1-20200805 100%[=================================================================================================>]  60.50M  18.5KB/s    in 44m 44s 
+
+2021-01-15 13:15:19 (23.1 KB/s) - ‘XMind-2020-for-Linux-amd-64bit-10.2.1-202008051959.deb’ saved [63442020/63442020]
+$
+```
 
 ## 다운로드 받은 파일로 XMind 2020 설치하기
 

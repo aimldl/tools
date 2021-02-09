@@ -1,0 +1,17 @@
+# Target labels
+ Extra
+ opencv_reg
+ AccuracyTest
+# Source files and their labels
+/home/k8smaster/github/tools/yolov3/bash_scripts/opencv_contrib-master/modules/reg/test/test_main.cpp
+ Extra
+ opencv_reg
+ AccuracyTest
+/home/k8smaster/github/tools/yolov3/bash_scripts/opencv_contrib-master/modules/reg/test/test_reg.cpp
+ Extra
+ opencv_reg
+ AccuracyTest
+/home/k8smaster/github/tools/yolov3/bash_scripts/opencv_contrib-master/modules/reg/test/test_precomp.hpp
+ Extra
+ opencv_reg
+ AccuracyTest
