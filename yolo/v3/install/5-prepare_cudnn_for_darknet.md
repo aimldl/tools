@@ -351,4 +351,29 @@ Google search: cat: /usr/local/cuda/include/cudnn.h: No such file or directory
 
 > The installation of CuDNN is just copying some files. Hence to check if CuDNN is installed (and which version you have), you only need to check those files.
 >
-> 
+
+
+
+```bash
+$ docker ps
+CONTAINER ID  IMAGE                     COMMAND  ...  NAMES
+1e6bdeec1030  baseimage-darknet:ver0.2  "bash"   ...  vibrant_bartik
+b865d9c1f5da  baseimage-darknet:ver0.2  "bash"   ...  quirky_engelbart
+  ...
+$ docker export 1e6bdeec1030 > baseimage-darknet_ver0_4.tar
+```
+
+
+
+```bash
+$ docker commit 1e6bdeec1030 baseimage-darknet:ver0.4
+sha256:3a48bd8567fdb44ad550a89782db9deb3db7a602c06516432adf03d1078826e8
+$ docker images
+REPOSITORY         TAG     IMAGE ID      CREATED         SIZE
+baseimage-darknet  ver0.4  3a48bd8567fd  32 seconds ago  8.36GB
+baseimage-darknet  ver0.3  9ed3aa90a41c  26 minutes ago  10.2GB
+baseimage-darknet  ver0.2  40b7c6a87c86  3 hours ago     8.36GB
+  ...
+$
+```
+
