@@ -264,6 +264,8 @@ No package 'opencv4' found
 (base) $
 ```
 
+> 주의:`opencv4`가 아닌 `opencv`로 변경해야 합니다.
+
 Google search: opencv pkg-config
 
 * [pkg-config can't find opencv](https://stackoverflow.com/questions/15113753/pkg-config-cant-find-opencv)
