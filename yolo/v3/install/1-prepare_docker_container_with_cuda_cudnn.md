@@ -255,3 +255,13 @@ Google search: docker with cuda and cudnn "/usr/local/cuda/include/cudnn.h: No s
 > 2. `nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04`
 >
 > These would then give you access to the tools such as `nvcc` and the cuDNN header files that are required for development.
+
+## 참고
+
+Google search: nvidia cuda cudnn docker image with develop options
+
+https://www.nvidia.co.kr/content/apac/event/kr/deep-learning-day-2017/dli-1/Docker-User-Guide-17-08_v1_NOV01_Joshpark.pdf
+
+* [pdf file](../pdf_files/Docker-User-Guide-17-08_v1_NOV01_Joshpark.pdf)
+
+* 엇 알고 보니 아시는 분들이 만드신 자료! 반가워서 파일을 keep해봅니다.
