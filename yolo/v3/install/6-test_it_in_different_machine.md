@@ -85,3 +85,57 @@ root@cc284448a358:/home/user/darknet#
 
 
 
+
+```bash
+root@cc284448a358:/home/user/darknet# nvidia-smi
+Wed Feb 10 11:52:17 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.102.04   Driver Version: 450.102.04   CUDA Version: 11.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 1080    On   | 00000000:01:00.0  On |                  N/A |
+|  0%   37C    P8    12W / 200W |    482MiB /  8118MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
++-----------------------------------------------------------------------------+
+root@cc284448a358:/home/user/darknet# 
+```
+
+로컬 컴퓨터의 버전을 확인합니다.
+
+```bash
+root@cc284448a358:/home/user/darknet# (base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ nvidia-smi
+Wed Feb 10 11:52:41 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.102.04   Driver Version: 450.102.04   CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 1080    On   | 00000000:01:00.0  On |                  N/A |
+|  0%   39C    P0    44W / 200W |    498MiB /  8118MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      1179      G   /usr/lib/xorg/Xorg                251MiB |
+|    0   N/A  N/A      1312      G   /usr/bin/gnome-shell              115MiB |
+|    0   N/A  N/A      2907      G   ...AAAAAAAAA= --shared-files       38MiB |
+|    0   N/A  N/A      3148      G   ...gAAAAAAAAA --shared-files       88MiB |
++-----------------------------------------------------------------------------+
+(base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ 
+```
