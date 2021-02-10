@@ -139,3 +139,143 @@ Wed Feb 10 11:52:41 2021
 +-----------------------------------------------------------------------------+
 (base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ 
 ```
+
+
+계획을 변경해서
+
+```bash
+# nano Makefile
+```
+
+```makefile
+GPU=1
+CUDNN=1
+OPENCV=0
+OPENMP=0
+DEBUG=0
+```
+로 변경합니다.
+
+```bash
+# make
+  ...
+./src/convolutional_layer.c: In function 'cudnn_convolutional_setup':
+./src/convolutional_layer.c:148:5: warning: implicit declaration of function 'cudnnGetConvolutionForwardAlgorithm'; did you mean 'cudnnGetConvolutionForwardAlgorithm_v7'? [-Wimplicit-function-declaration]
+     cudnnGetConvolutionForwardAlgorithm(cudnn_handle(),
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     cudnnGetConvolutionForwardAlgorithm_v7
+./src/convolutional_layer.c:153:13: error: 'CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT' undeclared (first use in this function); did you mean 'CUDNN_CONVOLUTION_FWD_ALGO_DIRECT'?
+             CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT,
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             CUDNN_CONVOLUTION_FWD_ALGO_DIRECT
+compilation terminated due to -Wfatal-errors.
+Makefile:89: recipe for target 'obj/convolutional_layer.o' failed
+make: *** [obj/convolutional_layer.o] Error 1
+#
+```
+ 에러 발생...
+ 
+
+```bash
+(base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ docker ps
+CONTAINER ID        IMAGE                             COMMAND             CREATED             STATUS              PORTS               NAMES
+1be1dfab4fd2        aimldl/baseimage-darknet:ver0.3   "bash"              2 minutes ago       Up 2 minutes                            loving_jackson
+cc284448a358        aimldl/baseimage-darknet:ver0.3   "bash"              5 minutes ago       Up 5 minutes                            suspicious_colden
+(base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ docker stop suspicious_colden
+suspicious_colden
+(base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ docker ps
+CONTAINER ID        IMAGE                             COMMAND             CREATED             STATUS              PORTS               NAMES
+1be1dfab4fd2        aimldl/baseimage-darknet:ver0.3   "bash"              2 minutes ago       Up 2 minutes                            loving_jackson
+(base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ docker attach loving_jackson
+root@1be1dfab4fd2:/home/user/darknet# ls
+LICENSE       LICENSE.gpl   LICENSE.v1  backup  darknet   include                      jasper-version-2.0.16         obj            opencv_contrib-master  python   src
+LICENSE.fuck  LICENSE.meta  Makefile    build   data      install_opencv_contrib       jasper-version-2.0.16.tar.gz  opencv-master  opencv_contrib.zip     results  yolov3.weights
+LICENSE.gen   LICENSE.mit   README.md   cfg     examples  install_opencv_dependencies  libdarknet.a                  opencv.zip     predictions.jpg        scripts
+root@1be1dfab4fd2:/home/user/darknet# mkdir cudnn
+root@1be1dfab4fd2:/home/user/darknet# ls
+LICENSE       LICENSE.gpl   LICENSE.v1  backup  cudnn    examples                install_opencv_dependencies   libdarknet.a   opencv.zip             predictions.jpg  scripts
+LICENSE.fuck  LICENSE.meta  Makefile    build   darknet  include                 jasper-version-2.0.16         obj            opencv_contrib-master  python           src
+LICENSE.gen   LICENSE.mit   README.md   cfg     data     install_opencv_contrib  jasper-version-2.0.16.tar.gz  opencv-master  opencv_contrib.zip     results          yolov3.weights
+root@1be1dfab4fd2:/home/user/darknet# 
+```
+
+cuDNN 설치를 위한 `.deb` 파일을 도커 컨테이너에 복사합니다.
+
+```bash
+root@1be1dfab4fd2:/home/user/darknet# read escape sequence
+(base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ ls
+libcudnn8-samples_8.1.0.77-1+cuda11.2_amd64.deb  opencv.zip
+libcudnn8-dev_8.1.0.77-1+cuda11.2_amd64.deb
+libcudnn8_8.1.0.77-1+cuda11.2_amd64.deb
+  ...
+(base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ docker cp libcudnn8-dev_8.1.0.77-1+cuda11.2_amd64.deb loving_jackson://home/user/darknet/cudnn
+(base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ docker cp libcudnn8-samples_8.1.0.77-1+cuda11.2_amd64.deb loving_jackson://home/user/darknet/cudnn
+(base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ docker cp libcudnn8_8.1.0.77-1+cuda11.2_amd64.deb loving_jackson://home/user/darknet/cudnn
+(base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ 
+```
+
+다시 컨테이너로 돌아갑니다.
+```bash
+(base) aimldl@aimldl-home-desktop:~/docker_with_yolov$ docker attach loving_jackson
+root@1be1dfab4fd2:/home/user/darknet# ls cudnn/
+libcudnn8-dev_8.1.0.77-1+cuda11.2_amd64.deb  libcudnn8-samples_8.1.0.77-1+cuda11.2_amd64.deb  libcudnn8_8.1.0.77-1+cuda11.2_amd64.deb
+root@1be1dfab4fd2:/home/user/darknet# 
+```
+
+3개의 `.deb`파일을 설치합니다. `dpkg -i`명령어로 install합니다.
+
+```bash
+root@1be1dfab4fd2:/home/user/darknet# cd cudnn/
+root@1be1dfab4fd2:/home/user/darknet/cudnn# dpkg -i libcudnn8-dev_8.1.0.77-1+cuda11.2_amd64.deb
+root@1be1dfab4fd2:/home/user/darknet/cudnn# dpkg -i libcudnn8-samples_8.1.0.77-1+cuda11.2_amd64.deb
+root@1be1dfab4fd2:/home/user/darknet/cudnn#  dpkg -i libcudnn8_8.1.0.77-1+cuda11.2_amd64.deb
+```
+
+각각의 출력은 아래와 같습니다.
+
+```bash
+root@1be1dfab4fd2:/home/user/darknet/cudnn# dpkg -i libcudnn8-dev_8.1.0.77-1+cuda11.2_amd64.deb
+Preparing to unpack libcudnn8-dev_8.1.0.77-1+cuda11.2_amd64.deb ...
+update-alternatives: removing manually selected alternative - switching libcudnn to auto mode
+Unpacking libcudnn8-dev (8.1.0.77-1+cuda11.2) over (8.1.0.77-1+cuda11.2) ...
+Setting up libcudnn8-dev (8.1.0.77-1+cuda11.2) ...
+update-alternatives: using /usr/include/x86_64-linux-gnu/cudnn_v8.h to provide /usr/include/cudnn.h (libcudnn) in auto mode
+root@1be1dfab4fd2:/home/user/darknet/cudnn# 
+```
+
+```bash
+root@1be1dfab4fd2:/home/user/darknet/cudnn# dpkg -i libcudnn8-dev_8.1.0.77-1+cuda11.2_amd64.deb
+(Reading database ... 50997 files and directories currently installed.)
+Preparing to unpack libcudnn8-dev_8.1.0.77-1+cuda11.2_amd64.deb ...
+update-alternatives: removing manually selected alternative - switching libcudnn to auto mode
+Unpacking libcudnn8-dev (8.1.0.77-1+cuda11.2) over (8.1.0.77-1+cuda11.2) ...
+Setting up libcudnn8-dev (8.1.0.77-1+cuda11.2) ...
+update-alternatives: using /usr/include/x86_64-linux-gnu/cudnn_v8.h to provide /usr/include/cudnn.h (libcudnn) in auto mode
+root@1be1dfab4fd2:/home/user/darknet/cudnn# dpkg -i libcudnn8-samples_8.1.0.77-1+cuda11.2_amd64.deb
+Selecting previously unselected package libcudnn8-samples.
+(Reading database ... 50989 files and directories currently installed.)
+Preparing to unpack libcudnn8-samples_8.1.0.77-1+cuda11.2_amd64.deb ...
+Unpacking libcudnn8-samples (8.1.0.77-1+cuda11.2) ...
+Setting up libcudnn8-samples (8.1.0.77-1+cuda11.2) ...
+root@1be1dfab4fd2:/home/user/darknet/cudnn# 
+```
+
+```bash
+root@1be1dfab4fd2:/home/user/darknet/cudnn# dpkg -i libcudnn8_8.1.0.77-1+cuda11.2_amd64.deb
+(Reading database ... 51059 files and directories currently installed.)
+Preparing to unpack libcudnn8_8.1.0.77-1+cuda11.2_amd64.deb ...
+Unpacking libcudnn8 (8.1.0.77-1+cuda11.2) over (8.1.0.77-1+cuda11.2) ...
+Setting up libcudnn8 (8.1.0.77-1+cuda11.2) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
+/sbin/ldconfig.real: File /usr/lib/x86_64-linux-gnu/libnvidia-opencl.so.460.32.03 is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.460.32.03 is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/x86_64-linux-gnu/libnvidia-cfg.so.460.32.03 is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/x86_64-linux-gnu/libnvidia-compiler.so.460.32.03 is empty, not checked.
+/sbin/ldconfig.real: File /usr/lib/x86_64-linux-gnu/libnvidia-allocator.so.460.32.03 is empty, not checked.
+root@1be1dfab4fd2:/home/user/darknet/cudnn# 
+```
+
+
+
+
+
