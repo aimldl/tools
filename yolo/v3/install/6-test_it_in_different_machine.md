@@ -276,6 +276,163 @@ root@1be1dfab4fd2:/home/user/darknet/cudnn#
 ```
 
 
+cuDNN 설치를 확인해봅니다.
+
+```bash
+root@1be1dfab4fd2:/home/user/darknet/cudnn# cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+cat: /usr/local/cuda/include/cudnn.h: No such file or directory
+root@1be1dfab4fd2:/home/user/darknet/cudnn# export PATH=/usr/local/cuda/bin:/$PATH
+root@1be1dfab4fd2:/home/user/darknet/cudnn# export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+root@1be1dfab4fd2:/home/user/darknet/cudnn# cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+cat: /usr/local/cuda/include/cudnn.h: No such file or directory
+root@1be1dfab4fd2:/home/user/darknet/cudnn# 
+```
+
+## Hint
+Google search: cat: /usr/local/cuda/include/cudnn.h: No such file or directory
+
+* [How to verify CuDNN installation?](https://stackoverflow.com/questions/31326015/how-to-verify-cudnn-installation)
+
+> The installation of CuDNN is just copying some files. Hence to check if CuDNN is installed (and which version you have), you only need to check those files.
+>
+> ## Install CuDNN
+>
+> Step 1: Register an nvidia developer account and [download cudnn here](https://developer.nvidia.com/cudnn) (about 80 MB). You might need `nvcc --version` to get your cuda version.
+>
+> Step 2: Check where your cuda installation is. For most people, it will be `/usr/local/cuda/`. You can check it with `which nvcc`.
+>
+> Step 3: Copy the files:
+>
+> ```
+> $ cd folder/extracted/contents
+> $ sudo cp include/cudnn.h /usr/local/cuda/include
+> $ sudo cp lib64/libcudnn* /usr/local/cuda/lib64
+> $ sudo chmod a+r /usr/local/cuda/lib64/libcudnn*
+> ```
+>
+> ## Check version
+>
+> You might have to adjust the path. See step 2 of the installation.
+>
+> ```
+> $ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+> ```
+>
+> ## Notes
+>
+> When you get an error like
+>
+> ```
+> F tensorflow/stream_executor/cuda/cuda_dnn.cc:427] could not set cudnn filter descriptor: CUDNN_STATUS_BAD_PARAM
+> ```
+>
+> with TensorFlow, you might consider using CuDNN v4 instead of v5.
 
 
+cuDNN Library for Linux (x86_64)
 
+유선망에서도 다운로드 받는데 4~5시간이 걸린다니...
+`cudnn.h`의 위치를 직접 찾아보겠습니다.
+
+```bash
+root@1be1dfab4fd2:/usr/include# ls cudnn*
+cudnn.h  cudnn_adv_infer.h  cudnn_adv_train.h  cudnn_backend.h  cudnn_cnn_infer.h  cudnn_cnn_train.h  cudnn_ops_infer.h  cudnn_ops_train.h  cudnn_version.h
+root@1be1dfab4fd2:/usr/include# 
+```
+`Makefile`이 실행될 때 이 디렉토리를 볼 수 있도록 지정해주겠습니다.
+
+
+```bash
+root@1be1dfab4fd2:/usr/include# echo $PATH
+/usr/local/cuda/bin://usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+root@1be1dfab4fd2:/usr/include# 
+```
+`PATH`가 뭔가 깔끔하지 않네요. 깔끔하게 재정의해주겠습니다.
+
+
+```bash
+root@1be1dfab4fd2:/usr/include# cat /home/user/.bashrc
+  ...
+export PATH=/usr/local/cuda/bin:/$PATH
+  ...
+root@1be1dfab4fd2:/usr/include# 
+```
+`/`때문에 이런 일이 벌어졌군요.
+
+```bash
+root@1be1dfab4fd2:/usr/include# export PATH=/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin
+root@1be1dfab4fd2:/usr/include# echo $PATH
+/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin
+root@1be1dfab4fd2:/usr/include# 
+```
+
+확인합니다.
+
+```bash
+root@1be1dfab4fd2:/usr/include# cd /home/user/darknet
+root@1be1dfab4fd2:/home/user/darknet# make
+gcc -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -DCUDNN  -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -DCUDNN -c ./src/convolutional_layer.c -o obj/convolutional_layer.o
+./src/convolutional_layer.c: In function 'cudnn_convolutional_setup':
+./src/convolutional_layer.c:148:5: warning: implicit declaration of function 'cudnnGetConvolutionForwardAlgorithm'; did you mean 'cudnnGetConvolutionForwardAlgorithm_v7'? [-Wimplicit-function-declaration]
+     cudnnGetConvolutionForwardAlgorithm(cudnn_handle(),
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     cudnnGetConvolutionForwardAlgorithm_v7
+./src/convolutional_layer.c:153:13: error: 'CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT' undeclared (first use in this function); did you mean 'CUDNN_CONVOLUTION_FWD_ALGO_DIRECT'?
+             CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT,
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             CUDNN_CONVOLUTION_FWD_ALGO_DIRECT
+compilation terminated due to -Wfatal-errors.
+Makefile:89: recipe for target 'obj/convolutional_layer.o' failed
+make: *** [obj/convolutional_layer.o] Error 1
+root@1be1dfab4fd2:/home/user/darknet# 
+```
+
+```bash
+root@1be1dfab4fd2:/home/user/darknet# export PATH=/usr/include:$PATH
+root@1be1dfab4fd2:/home/user/darknet# echo $PATH
+/usr/include:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin
+root@1be1dfab4fd2:/home/user/darknet# 
+```
+
+## Problem
+일단 해결은 됐지만 다음 문제가 발생했습니다.
+```bash
+root@1be1dfab4fd2:/home/user/darknet# make
+gcc -Iinclude/ -Isrc/ -DGPU -I/usr/local/cuda/include/ -DCUDNN  -Wall -Wno-unused-result -Wno-unknown-pragmas -Wfatal-errors -fPIC -Ofast -DGPU -DCUDNN -c ./src/convolutional_layer.c -o obj/convolutional_layer.o
+./src/convolutional_layer.c: In function 'cudnn_convolutional_setup':
+./src/convolutional_layer.c:148:5: warning: implicit declaration of function 'cudnnGetConvolutionForwardAlgorithm'; did you mean 'cudnnGetConvolutionForwardAlgorithm_v7'? [-Wimplicit-function-declaration]
+     cudnnGetConvolutionForwardAlgorithm(cudnn_handle(),
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     cudnnGetConvolutionForwardAlgorithm_v7
+./src/convolutional_layer.c:153:13: error: 'CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT' undeclared (first use in this function); did you mean 'CUDNN_CONVOLUTION_FWD_ALGO_DIRECT'?
+             CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT,
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             CUDNN_CONVOLUTION_FWD_ALGO_DIRECT
+compilation terminated due to -Wfatal-errors.
+Makefile:89: recipe for target 'obj/convolutional_layer.o' failed
+make: *** [obj/convolutional_layer.o] Error 1
+root@1be1dfab4fd2:/home/user/darknet# 
+```
+
+Google search: ./src/convolutional_layer.c:153:13: error: 'CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT' undeclared (first use in this function); did you mean 'CUDNN_CONVOLUTION_FWD_ALGO_DIRECT'?
+
+* [yolo with cudnn #2257](https://github.com/pjreddie/darknet/issues/2257)
+
+> **[Michi-123](https://github.com/Michi-123)** commented [on 14 Sep 2020](https://github.com/pjreddie/darknet/issues/2257#issuecomment-691774338) • edited 
+>
+> O-key. I did it by the methos at [Downgrade CUDA for Tensorflow-GPU](https://medium.com/@praveenkrishna/downgrade-cuda-for-tensorflow-gpu-17831db59099)It works!
+
+> 
+
+
+> ### **[ilkin94](https://github.com/ilkin94)** commented [on 30 Oct 2020](https://github.com/pjreddie/darknet/issues/2257#issuecomment-719143881)
+>
+> O-key. I did it by the methos at [Downgrade CUDA for Tensorflow-GPU](https://medium.com/@praveenkrishna/downgrade-cuda-for-tensorflow-gpu-17831db59099)It works!Thanks for the recommendation, it helped me to install clean setup. If someone has problems executing the commands in that blog, type them by hand. Sometimes characters is not recognized in terminal when copy and paste.
+
+CUDA버전을 10.x대로 낮추라는 제안이 있습니다. 생각해보니 TensorFlow 2.x의 경우 최신 CUDA버전을 지원하지 않는 문제가 있었는데요. OpenCV도 유사한 경우인가? 생각을 해보게 되네요.
+
+[Downgrade CUDA for Tensorflow-GPU](https://medium.com/@praveenkrishna/downgrade-cuda-for-tensorflow-gpu-17831db59099)
+
+각각의 호환성 이슈가 있었습니다.
+
+<img src='https://miro.medium.com/max/1225/1*JUox6fJbAD2gMOxKHmzXCQ.png'>
