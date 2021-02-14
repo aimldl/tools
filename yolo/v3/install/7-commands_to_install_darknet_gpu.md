@@ -126,6 +126,66 @@ darknet: ./src/cuda.c:36: check_error: Assertion `0' failed.
 Aborted (core dumped)
 #
 
+Google search: darknet cudnn CUDA Error: out of memory
+* [run yolov3 with GPU:CUDA Error: out of memory #791](https://github.com/pjreddie/darknet/issues/791)
+> I maked the darknet with "GPU=1,CUDNN=1,OPENCV=1" successfully，however，when I use the command "sudo ./darknet detector test cfg/coco.data cfg/yolov3.cfg yolov3.weights data/dog.jpg
+",it shows:
+CUDA Error: out of memory
+darknet: ./src/cuda.c:36: check_error: Assertion `0' failed.
+But if I use the command"sudo ./darknet detector test cfg/coco.data cfg/yolov2.cfg yolov2.weights data/dog.jpg",it can detect targets successfully.
+It seems that the problem is the yolov3.What can I do to solve the problem?
+
+
+> hjchai commented on 18 May 2018
+@dayn9t I think your gpu is low in memory. when Yolov3 fully loaded to gpu, it takes about 1600MB memory by default setting(416*416) on my computer, plus 300ish MiB from display and other applications, it is very like it will throw out OOM error. Try to run on a gpu with larger memory or reduce the width and height setting in your cfg file(Note: reducing the size might impact your detection results.).
+
+> aryus96 commented on 16 Sep 2018 • 
+edited 
+I had the same problem with a GT740M with 4096Mo GDDR4 memory. Nvidia 384.130, Cuda 9, CUDNN, OpenCV 3.3.
+>
+>My solution to run Yolov3 perfectly was to : modify the cfg/yolov3.cfg :
+>
+>batch=1
+>subdivisions=1
+>width=416
+>height=416
+
+> SonaHarutyunyan commented on 11 Dec 2018
+> Here https://github.com/AlexeyAB/darknet you can find this note:
+> Note: if error Out of memory occurs then in .cfg-file you should increase subdivisions=16, 32 or 64
+
+
+https://www.nvidia.com/en-sg/geforce/products/10series/geforce-gtx-1080/
+1080
+GPU Engine Specs:
+2560NVIDIA CUDA® Cores
+1607Base Clock (MHz)
+1733Boost Clock (MHz)
+Memory Specs:
+10 GbpsMemory Speed
+8 GB GDDR5XStandard Memory Config
+256-bitMemory Interface Width
+320
+
+$ nano cfg/yolov3.cfg
+[net]
+# Testing
+# batch=1
+# subdivisions=1
+# Training
+batch=64
+
+
+batch=32
+
+Loading weights from yolov3.weights...Done!
+data/dog.jpg: Predicted in 0.053748 seconds.
+dog: 100%
+truck: 92%
+bicycle: 99%
+(base) aimldl@aimldl-home-desktop:~/darknet$ 
+
+It works just fine!
 
 https://github.com/aimldl/tools/blob/main/yolo/v3/install/4-prepare_opencv_for_darknet.md
 
