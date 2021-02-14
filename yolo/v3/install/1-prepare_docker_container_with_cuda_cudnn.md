@@ -28,8 +28,13 @@ $
 $ docker pull nvidia/cuda:10.0-devel-ubuntu18.04
 ```
 
-### Dockerfile에서 빌드하기.
-
+### 확인하기
+```bash
+$ docker images
+REPOSITORY   TAG                     IMAGE ID      CREATED       SIZE
+nvidia/cuda  10.0-devel-ubuntu18.04  04156a673e4e  2 months ago  2.24GB
+$
+```
 
 ## 상세 설명
 
