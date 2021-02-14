@@ -1,10 +1,36 @@
+$ ./install_docker_on_ubuntu 
+$ ./install_nvidia_docker_on_ubuntu (double-check the name)
+
+$ docker login
+
 그런데 파일명이 다르네요. 
 
 [cuDNN Library for Linux](https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7.4.2/prod/10.0_20181213/cudnn-10.0-linux-x64-v7.4.2.24.tgz)
 
 를 클릭하니 동일한 파일인 `cudnn-10.0-linux-x64-v7.4.2.24.tgz`를 다운로드 받습니다.
 
-
+$ docker pull nvidia/cuda:10.0-devel-ubuntu18.04
+10.0-devel-ubuntu18.04: Pulling from nvidia/cuda
+f22ccc0b8772: Pull complete 
+3cf8fb62ba5f: Pull complete 
+e80c964ece6a: Pull complete 
+5d59c811e2af: Pull complete 
+70a8c4b06826: Pull complete 
+cd74940ce186: Pull complete 
+3e2a00b42ba6: Pull complete 
+ea92e080ed6c: Pull complete 
+53ad5ada260f: Pull complete 
+8342e80cbf2c: Pull complete 
+Digest: sha256:473679cfce78d0f2ef9c21f46b7b80ac84029fb0aef4e2e616c217737a1d7e0a
+Status: Downloaded newer image for nvidia/cuda:10.0-devel-ubuntu18.04
+docker.io/nvidia/cuda:10.0-devel-ubuntu18.04
+(base) aimldl@aimldl-home-desktop:~$ docker images
+REPOSITORY          TAG                      IMAGE ID            CREATED             SIZE
+nvidia/cuda         10.0-devel-ubuntu18.04   04156a673e4e        2 months ago        2.24GB
+nvidia/cuda         11.0-base                2ec708416bb8        5 months ago        122MB
+(base) aimldl@aimldl-home-desktop:~$ docker run -it --gpus all nvidia/cuda:10.0-devel-ubuntu18.04 bash
+root@4f27c77943c0:/# 
+root@4f27c77943c0:/# cat /usr/include/cudnn.h | egrep CUDNN_MAJOR -A 2
 
 (base) aimldl@aimldl-home-desktop:~$ docker login
 Authenticating with existing credentials...
