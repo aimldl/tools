@@ -4,7 +4,20 @@
 
 ## 요약
 
-[nvidia/cuda - Docker Hub](https://hub.docker.com/r/nvidia/cuda/)에 여러 버전의 도커 이미지가 있는데 [11.2.0-cudnn8-devel-ubuntu18.04](https://gitlab.com/nvidia/container-images/cuda/blob/master/dist/11.2.0/ubuntu18.04-x86_64/devel/cudnn8/Dockerfile) 를 선택해서 도커 이미지를 생성합니다.
+[nvidia/cuda - Docker Hub](https://hub.docker.com/r/nvidia/cuda/)에 여러 버전의 도커 이미지가 있는데 CUDA 10.0버전을 선택합니다.
+
+`TAGS`의 검색창에 10.0을 입력한 다음
+<img src='images/nvidia_hub-nvidia_cuda-tags-10_0-search_results-ubuntu18_04.png'>
+
+검색결과에서 `10.0-devel-ubuntu18.04`를 선택합니다.
+
+### 명령어로 다운 받기
+```bash
+$ docker pull nvidia/cuda:10.0-devel-ubuntu18.04
+```
+
+
+[11.2.0-cudnn8-devel-ubuntu18.04](https://gitlab.com/nvidia/container-images/cuda/blob/master/dist/11.2.0/ubuntu18.04-x86_64/devel/cudnn8/Dockerfile) 를 선택해서 도커 이미지를 생성합니다.
 
 이용한 [Dockerfile](../dockerfiles/11.2.0-cudnn8-devel-ubuntu18.04/Dockerfile)은
 
@@ -23,6 +36,8 @@ RUN apt update && apt install -y --no-install-recommends \
     && apt-mark hold libcudnn8 && \
     rm -rf /var/lib/apt/lists/*
 ```
+
+
 
 과 같습니다.
 
@@ -265,3 +280,26 @@ https://www.nvidia.co.kr/content/apac/event/kr/deep-learning-day-2017/dli-1/Dock
 * [pdf file](../pdf_files/Docker-User-Guide-17-08_v1_NOV01_Joshpark.pdf)
 
 * 엇 알고 보니 아시는 분들이 만드신 자료! 반가워서 파일을 keep해봅니다.
+
+## 부록
+CUDA 11.2.0의 경우 다음과 같습니다.
+[11.2.0-cudnn8-devel-ubuntu18.04](https://gitlab.com/nvidia/container-images/cuda/blob/master/dist/11.2.0/ubuntu18.04-x86_64/devel/cudnn8/Dockerfile) 를 선택해서 도커 이미지를 생성합니다.
+
+이용한 [Dockerfile](../dockerfiles/11.2.0-cudnn8-devel-ubuntu18.04/Dockerfile)은
+
+```dockerfile
+ARG IMAGE_NAME
+FROM ${IMAGE_NAME}:11.2.0-devel-ubuntu18.04
+LABEL maintainer "NVIDIA CORPORATION <cudatools@nvidia.com>"
+
+ENV CUDNN_VERSION 8.1.0.77
+
+LABEL com.nvidia.cudnn.version="${CUDNN_VERSION}"
+
+RUN apt update && apt install -y --no-install-recommends \
+    libcudnn8=$CUDNN_VERSION-1+cuda11.2 \
+    libcudnn8-dev=$CUDNN_VERSION-1+cuda11.2 \
+    && apt-mark hold libcudnn8 && \
+    rm -rf /var/lib/apt/lists/*
+```
+
