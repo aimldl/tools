@@ -5,7 +5,14 @@
 
 ## 요약
 
-[nvidia/cuda - Docker Hub](https://hub.docker.com/r/nvidia/cuda/)에 여러 버전의 도커 이미지가 있는데 CUDA 10.0버전을 선택합니다.
+* [nvidia/cuda - Docker Hub](https://hub.docker.com/r/nvidia/cuda/)에 여러 버전의 도커 이미지가 있는데 CUDA 10.0버전을 선택합니다. 
+
+* 현시점에서 최신 버전인 `CUDA 11.2.-devel`을 써봤지만 호환성 이슈가 발생했습니다.
+  * 이를 해결하기 위해 참고한 문서에서 CUDA 10.0버전을 이용했습니다.
+  * 이 문서를 참고해서 NVIDIA 1080이 탑재된 데스크탑 환경에 설치해본 결과 텐서플로 등에서 성공적으로 GPU를 쓸 수 있었습니다.
+  * NVIDIA 1080 두 장이 탑재된 다른 데스크탑 환경에도 설치했고 성공했습니다.
+
+
 
 `TAGS`의 검색창에 10.0을 입력한 다음
 <img src='images/nvidia_hub-nvidia_cuda-tags-10_0-search_results-ubuntu18_04.png'>

@@ -243,6 +243,89 @@ https://github.com/aimldl/tools/blob/main/yolo/v3/bash_scripts/install_opencv_de
 https://github.com/aimldl/tools/blob/main/yolo/v3/install/4-prepare_opencv_for_darknet.md
 
 # python3 -c 'import cv2; print(cv2.__version__)'
-# pkg-config --modversion opencv
+# pkg-config --modversion op(base) k8smaster@k8smaster-Alienware-Aurora-R7:~$ docker export aimldl/darknet:gpu_cudnn_opencv_version > darknet_gpu_cudnn_opencv_version.tar
+Error response from daemon: No such container: aimldl/darknet:gpu_cudnn_opencv_version
+(base) k8smaster@k8smaster-Alienware-Aurora-R7:~$ docker save aimldl/darknet:gpu_cudnn_opencv_version > darknet_gpu_cudnn_opencv_version.tarencv
 
+
+
+### 새 컴퓨터로 옮긴 다음 성능 확인
+
+
+
+```bash
+$ docker login
+Authenticating with existing credentials...
+WARNING! Your password will be stored unencrypted in /home/k8smaster/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+$ docker pull aimldl/darknet:gpu_cudnn_opencv_versiongpu_cudnn_opencv_version: Pulling from aimldl/darknet
+f22ccc0b8772: Already exists 
+3cf8fb62ba5f: Already exists 
+e80c964ece6a: Already exists 
+5d59c811e2af: Pull complete 
+70a8c4b06826: Pull complete 
+cd74940ce186: Pull complete 
+3e2a00b42ba6: Pull complete 
+ea92e080ed6c: Pull complete 
+53ad5ada260f: Pull complete 
+8342e80cbf2c: Pull complete 
+42b4ccb63866: Pull complete 
+Digest: sha256:a2addb2f0b8516e26b3a4ab06d3a56441203a646525ac2e5723bad51d54be3c6
+Status: Downloaded newer image for aimldl/darknet:gpu_cudnn_opencv_version
+docker.io/aimldl/darknet:gpu_cudnn_opencv_version
+$ docker images
+REPOSITORY      TAG                       IMAGE ID      CREATED            SIZE
+aimldl/darknet  gpu_cudnn_opencv_version  4b159247967d  About an hour ago  6.51GB
+  ...
+$
+```
+
+
+
+
+
+
+
+
+
+새로 만든 도커 환경을 실행하고 `darknet` 디렉토리로 이동합니다.
+
+```bash
+$ docker run --gpus all -it aimldl/darknet:gpu_cudnn_opencv_version bash
+root@228b2e12fee0:/# ls
+bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+root@228b2e12fee0:/# cd home/user/
+root@228b2e12fee0:/home/user# ls
+darknet  downloads
+root@228b2e12fee0:/home/user# cd darknet/
+root@228b2e12fee0:/home/user/darknet# ls
+LICENSE       cfg                                       obj
+LICENSE.fuck  darknet                                   opencv-master
+  ...
+build         libdarknet.so                             yolov3.weights
+root@228b2e12fee0:/home/user/darknet#
+```
+
+
+
+다크넷으로 yolov3를 테스트합니다.
+
+```bash
+$ docker images
+REPOSITORY      TAG                       IMAGE ID      CREATED            SIZE
+aimldl/darknet  gpu_cudnn_opencv_version  4b159247967d  About an hour ago  6.51GB
+  ...
+$root@228b2e12fee0:/home/user/darknet# ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
+  ...
+Loading weights from yolov3.weights...Done!
+data/dog.jpg: Predicted in 0.052934 seconds.
+dog: 100%
+truck: 92%
+bicycle: 99%
+$
+```
 
