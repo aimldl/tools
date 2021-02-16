@@ -214,3 +214,16 @@ DEBUG=0
 #
 ```
 
+```bash
+root@041a6653113d:/home/user/darknet# ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights ../etri_videos/seoul.mp4 > darknet-2021-02-15_mon.log
+
+...
+Loading weights from yolov3.weights...Done!
+
+(Demo:15787): dbind-WARNING **: 19:27:17.391: Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-CGk1tCxcEO: Connection refused
+Gtk-Message: 19:27:17.410: Failed to load module "canberra-gtk-module"
+Gtk-Message: 19:27:17.411: Failed to load module "canberra-gtk-module"
+Floating point exception (core dumped)
+$
+```
+
