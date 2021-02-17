@@ -188,7 +188,7 @@ $
 ```
 The following part shows how to install/compile OpenCV which takes hours.
 
-## Enable GPU, cuDNN, and OpenCV
+## Install OpenCV
 
 ```bash
 $ nano install_opencv_in_linux
@@ -213,8 +213,24 @@ user	81m37.946s
 sys	5m8.719s
 $
 
+## Enable GPU and cuDNN
 
-Enable X11 to use GUI
+```bash
+$ nano Makefile
+```
+
+```makefile
+GPU=1
+CUDNN=1
+OPENCV=1
+```
+
+```bash
+$ make
+```
+
+## Enable X11 to use GUI
+To display GUI, X11 is required. 
 ```bash
 $ sudo apt install -y x11-apps
 $ sudo apt install -y xorg openbox
@@ -225,19 +241,49 @@ $ sudo apt install -y xorg openbox
 $ ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
   ...
 Loading weights from yolov3.weights...Done!
-data/dog.jpg: Predicted in 0.028911 seconds.
+data/dog.jpg: Predicted in 0.028416 seconds.
 dog: 100%
 truck: 92%
 bicycle: 99%
+Gtk-Message: 08:01:41.182: Failed to load module "canberra-gtk-module"
+Gtk-Message: 08:01:41.206: Failed to load module "canberra-gtk-module"
 $
 ```
 The accuracy remains identical, but darknet runs a lot faster.
-Reducing time from 0.02 to  seconds.
+Reducing time from 0.028911 to 0.028416 seconds.
 
 ```
 (in seconds)
 CPU: 20.962725
 GPU: 10.958885
 GPU+cuDNN: 0.028911
-GPU+cuDNN+OpenCV: 
+GPU+cuDNN+OpenCV: 0.028416
 ```
+A pop-up window will show the detected result.
+
+## Run a video
+```bash
+$ ./darknet.gpu_cudnn detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights ../videos/downtown.mp4
+```
+
+```bash
+FPS:29.9
+Objects:
+
+car: 97%
+car: 100%
+car: 100%
+car: 99%
+truck: 97%
+person: 99%
+person: 98%
+person: 96%
+truck: 85%
+truck: 94%
+person: 94%
+person: 90%
+person: 90%
+person: 90%
+car: 86%
+```
+To save FPSs, 
