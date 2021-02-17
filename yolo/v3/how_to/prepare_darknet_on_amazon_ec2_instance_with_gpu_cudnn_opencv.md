@@ -60,6 +60,7 @@ $ nano install_darknet-cpu_only
 $ chmod +x install_darknet-cpu_only 
 $ ./install_darknet-cpu_only 
 ```
+It takes `1m1.571s` on EC2 p3.2xlarge.
 
 `install_darknet-cpu_only`
 ```bash
@@ -84,12 +85,13 @@ $
 ```
 
 ```bash
-$ mv darknet darknet.cpu
+$ cp darknet darknet.cpu
 ```
 
 ## Makefile
 
 ```bash
+$ cd darknet
 $ nano Makefile
 ```
 ```makefile
@@ -118,6 +120,7 @@ $ make
   ...
 $
 ```
+It takes `0m47.825s` on EC2 p3.2xlarge.
 ### Verify
 ```bash
 $ ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
@@ -133,7 +136,7 @@ The accuracy remains identical, but darknet runs a lot faster.
 Reducing time from 20.96 to 10.95 seconds.
 
 ```bash
-$ mv darknet darknet.gpu
+$ cp darknet darknet.gpu
 ```
 
 # Enable GPU and cuDNN
@@ -145,6 +148,12 @@ $ nano Makefile
 GPU=1
 CUDNN=1
 ```
+
+```bash
+$ make
+```
+
+It takes `0m37.838s` on EC2 p3.2xlarge.
 
 ### Verify
 ```bash
@@ -168,8 +177,8 @@ GPU+cuDNN: 0.028911
 ```
 
 ```bash
-$ mv darknet darknet.gpu_cudnn
-```$ mv darknet darknet.gpu_cudnn
+$ cp darknet darknet.gpu_cudnn
+```
 
 ## Running a video
 
@@ -228,6 +237,11 @@ OPENCV=1
 ```bash
 $ make
 ```
+
+```bash
+$ cp darknet darknet.gpu_cudnn_opencv
+```
+
 
 ## Enable X11 to use GUI
 To display GUI, X11 is required. 
