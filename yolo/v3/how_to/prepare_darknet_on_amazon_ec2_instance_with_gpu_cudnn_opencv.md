@@ -171,6 +171,23 @@ GPU+cuDNN: 0.028911
 $ mv darknet darknet.gpu_cudnn
 ```$ mv darknet darknet.gpu_cudnn
 
+## Running a video
+
+According to [YOLO: Real-Time Object Detection](https://pjreddie.com/darknet/yolo/), the command to run a video is:
+
+```bash
+$ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights <video file>
+```
+
+`OpenCV` is required to run a video. Darknet does not run without `OpenCV`. For example,
+
+```bash
+$ ./darknet.gpu_cudnn detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights ../videos/downtown.mp4
+Demo needs OpenCV for webcam images.
+$
+```
+The following part shows how to install/compile OpenCV which takes hours.
+
 ## Enable GPU, cuDNN, and OpenCV
 
 ```bash
@@ -211,12 +228,4 @@ CPU: 20.962725
 GPU: 10.958885
 GPU+cuDNN: 0.028911
 GPU+cuDNN+OpenCV: 
-```
-
-## Running a video
-
-https://pjreddie.com/darknet/yolo/
-
-```bash
-$ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights <video file>
 ```
