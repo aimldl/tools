@@ -46,12 +46,31 @@ $ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 $ 
 ```
 ## Prepare the installation Bash scripts
+On EC2
 
 ```bash
 $ ls
 Nvidia_Cloud_EULA.pdf  README  src  tools
-$ mkdir darknet
+$
+```
+
+```bash
+$ cd
+$ nano install_darknet-cpu_only
+$ chmod +x install_darknet-cpu_only 
+$ ./install_darknet-cpu_only 
+```
+
+`install_darknet-cpu_only`
+```bash
+$ git clone https://github.com/pjreddie/darknet.git
 $ cd darknet/
+$ wget https://pjreddie.com/media/files/yolov3.weights &
+$ make
+```
+For details, refer to https://pjreddie.com/darknet/yolo/
+
+```bash
 $ nano install_opencv_in_linux
 $ nano install_opencv_contrib
 $ chmod +x install_opencv_contrib 
@@ -70,18 +89,3 @@ $ sudo apt install -y xorg openbox
 ```
 
 
-`install_darknet-cpu_only`
-```bash
-$ git clone https://github.com/pjreddie/darknet.git
-$ cd darknet/
-$ wget https://pjreddie.com/media/files/yolov3.weights &
-$ make
-```
-For details, refer to https://pjreddie.com/darknet/yolo/
-
-On EC2
-```bash
-$ nano install_darknet-cpu_only
-$ chmod +x install_darknet-cpu_only 
-$ ./install_darknet-cpu_only 
-```
