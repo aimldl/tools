@@ -55,5 +55,8 @@ $ nano install_opencv_contrib
 $ chmod +x install_opencv_contrib 
 $ chmod +x install_opencv_in_linux 
 $ ./install_opencv_in_linux
-$ ./install_opencv_contrib 
+```
+The next step is to compile OpenCV. This takes hours depending on machine.
+```bash
+$ ./install_opencv_contrib
 ```
