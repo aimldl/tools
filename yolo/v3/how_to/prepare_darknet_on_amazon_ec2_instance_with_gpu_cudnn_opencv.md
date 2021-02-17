@@ -1,6 +1,12 @@
 * Draft: 2021-02-17 (Wed)
 
+# How to Prepare Darknet on Amazon EC2 Instance (with GPU, cuDNN, and OpenCV)
 
+## Create an Amazon EC2 instance
+
+
+## Check the computing environment
+run
 ```bash
 $ nvidia-smi
 Wed Feb 17 04:23:29 2021       
@@ -37,4 +43,17 @@ $ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 #include "driver_types.h"
 $ 
 ```
+## Prepare the installation Bash scripts
 
+```bash
+$ ls
+Nvidia_Cloud_EULA.pdf  README  src  tools
+$ mkdir darknet
+$ cd darknet/
+$ nano install_opencv_in_linux
+$ nano install_opencv_contrib
+$ chmod +x install_opencv_contrib 
+$ chmod +x install_opencv_in_linux 
+$ ./install_opencv_in_linux
+$ ./install_opencv_contrib 
+```
