@@ -1,0 +1,40 @@
+* Draft: 2021-02-17 (Wed)
+
+
+```bash
+$ nvidia-smi
+Wed Feb 17 04:23:29 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.80.02    Driver Version: 450.80.02    CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla V100-SXM2...  On   | 00000000:00:1E.0 Off |                    0 |
+| N/A   29C    P0    24W / 300W |      0MiB / 16160MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+$ docker --version
+Docker version 20.10.3, build 48d30b5
+$ nvidia-docker --version
+Docker version 20.10.3, build 48d30b5
+$ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+#define CUDNN_MAJOR 7
+#define CUDNN_MINOR 5
+#define CUDNN_PATCHLEVEL 1
+--
+#define CUDNN_VERSION (CUDNN_MAJOR * 1000 + CUDNN_MINOR * 100 + CUDNN_PATCHLEVEL)
+
+#include "driver_types.h"
+$ 
+```
+
