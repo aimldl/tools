@@ -46,7 +46,7 @@ root@f508e9cee903:/home/user#
 CPU only  버전을 컴파일합니다.
 
  ```bash
-root@f508e9cee903:/home/user#  git clone https://github.com/pjreddie/darknet.git
+root@f508e9cee903:/home/user# git clone https://github.com/pjreddie/darknet.git
 root@f508e9cee903:/home/user# cd darknet/
 root@f508e9cee903:/home/user/darknet# ls
 LICENSE       LICENSE.gen  LICENSE.meta  LICENSE.v1  README.md  data      include  scripts
