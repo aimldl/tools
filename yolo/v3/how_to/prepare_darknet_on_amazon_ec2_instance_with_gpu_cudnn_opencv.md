@@ -167,6 +167,10 @@ GPU: 10.958885
 GPU+cuDNN: 0.028911
 ```
 
+```bash
+$ mv darknet darknet.gpu_cudnn
+```$ mv darknet darknet.gpu_cudnn
+
 ## Enable GPU, cuDNN, and OpenCV
 
 ```bash
