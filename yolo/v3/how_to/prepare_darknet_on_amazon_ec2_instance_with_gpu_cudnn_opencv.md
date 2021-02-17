@@ -60,3 +60,4 @@ The next step is to compile OpenCV. This takes hours depending on machine.
 ```bash
 $ ./install_opencv_contrib
 ```
+
