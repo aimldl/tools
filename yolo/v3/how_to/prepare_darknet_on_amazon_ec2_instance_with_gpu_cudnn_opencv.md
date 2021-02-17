@@ -79,4 +79,9 @@ $ make
 ```
 For details, refer to https://pjreddie.com/darknet/yolo/
 
-
+On EC2
+```bash
+$ nano install_darknet-cpu_only
+$ chmod +x install_darknet-cpu_only 
+$ ./install_darknet-cpu_only 
+```
