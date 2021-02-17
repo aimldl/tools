@@ -202,6 +202,18 @@ $ chmod +x install_opencv_contrib
 $ ./install_opencv_contrib
 ```
 
+It takes 87 minutes on EC2 p3.2xlarge instance.
+```bash
+$ time cmake --build .
+  ...
+(wd now: ~/darknet/build)
+
+real	87m5.041s
+user	81m37.946s
+sys	5m8.719s
+$
+
+
 Enable X11 to use GUI
 ```bash
 $ sudo apt install -y x11-apps
