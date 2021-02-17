@@ -209,3 +209,10 @@ GPU+cuDNN: 0.028911
 GPU+cuDNN+OpenCV: 
 ```
 
+## Running a video
+
+https://pjreddie.com/darknet/yolo/
+
+```bash
+$ ./darknet detector demo cfg/coco.data cfg/yolov3.cfg yolov3.weights <video file>
+```
