@@ -7,7 +7,9 @@
 
 ## Check the computing environment
 run
-```bash
+```bashvices/en
+Add new stuff by batch_git_push
+last month
 $ nvidia-smi
 Wed Feb 17 04:23:29 2021       
 +-----------------------------------------------------------------------------+
@@ -60,4 +62,21 @@ The next step is to compile OpenCV. This takes hours depending on machine.
 ```bash
 $ ./install_opencv_contrib
 ```
+
+Enable X11 to use GUI
+```bash
+$ sudo apt install -y x11-apps
+$ sudo apt install -y xorg openbox
+```
+
+
+`install_darknet-cpu_only`
+```bash
+$ git clone https://github.com/pjreddie/darknet.git
+$ cd darknet/
+$ wget https://pjreddie.com/media/files/yolov3.weights &
+$ make
+```
+For details, refer to https://pjreddie.com/darknet/yolo/
+
 
