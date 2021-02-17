@@ -70,15 +70,114 @@ $ make
 ```
 For details, refer to https://pjreddie.com/darknet/yolo/
 
+## CPU Only
+
+```bash
+$ ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
+  ...
+Loading weights from yolov3.weights...Done!
+data/dog.jpg: Predicted in 20.962725 seconds.
+dog: 100%
+truck: 92%
+bicycle: 99%
+$
+```
+
+```bash
+$ mv darknet darknet.cpu
+```
+
+## Makefile
+
+```bash
+$ nano Makefile
+```
+```makefile
+GPU=0
+CUDNN=0
+OPENCV=0
+OPENMP=0
+DEBUG=0
+
+ARCH= -gencode arch=compute_30,code=sm_30 \
+      -gencode arch=compute_35,code=sm_35 \
+  ...
+```
+
+## Enable GPU
+```bash
+$ nano Makefile
+```
+
+```makefile
+GPU=1
+```
+
+```bash
+$ make
+  ...
+$
+```
+### Verify
+```bash
+$ ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
+  ...
+Loading weights from yolov3.weights...Done!
+data/dog.jpg: Predicted in 10.958885 seconds.
+dog: 100%
+truck: 92%
+bicycle: 99%
+$
+```
+The accuracy remains identical, but darknet runs a lot faster.
+Reducing time from 20.96 to 10.95 seconds.
+
+```bash
+$ mv darknet darknet.gpu
+```
+
+# Enable GPU and cuDNN
+```bash
+$ nano Makefile
+```
+
+```makefile
+GPU=1
+CUDNN=1
+```
+
+### Verify
+```bash
+$ ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
+  ...
+Loading weights from yolov3.weights...Done!
+data/dog.jpg: Predicted in 0.028911 seconds.
+dog: 100%
+truck: 92%
+bicycle: 99%
+$
+```
+The accuracy remains identical, but darknet runs a lot faster.
+Reducing time from 10.95 to 0.02 seconds.
+
+Unit seconds
+```
+CPU: 20.962725
+GPU: 10.958885
+GPU+cuDNN: 0.028911
+```
+
+## Enable GPU, cuDNN, and OpenCV
+
 ```bash
 $ nano install_opencv_in_linux
-$ nano install_opencv_contrib
-$ chmod +x install_opencv_contrib 
 $ chmod +x install_opencv_in_linux 
 $ ./install_opencv_in_linux
 ```
 The next step is to compile OpenCV. This takes hours depending on machine.
 ```bash
+$ nano install_opencv_contrib
+$ chmod +x install_opencv_contrib
 $ ./install_opencv_contrib
 ```
 
@@ -88,4 +187,25 @@ $ sudo apt install -y x11-apps
 $ sudo apt install -y xorg openbox
 ```
 
+### Verify
+```bash
+$ ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
+  ...
+Loading weights from yolov3.weights...Done!
+data/dog.jpg: Predicted in 0.028911 seconds.
+dog: 100%
+truck: 92%
+bicycle: 99%
+$
+```
+The accuracy remains identical, but darknet runs a lot faster.
+Reducing time from 0.02 to  seconds.
+
+```
+(in seconds)
+CPU: 20.962725
+GPU: 10.958885
+GPU+cuDNN: 0.028911
+GPU+cuDNN+OpenCV: 
+```
 
