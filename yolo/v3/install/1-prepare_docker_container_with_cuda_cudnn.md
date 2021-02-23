@@ -1,37 +1,25 @@
+* Rev.1: 2021-02-14 (Sun)
 * Draft: 2021-02-09 (Tue)
 
 # CUDA와 CUDNN이 설치된 도커 이미지 생성하기
 
 ## 요약
 
-[nvidia/cuda - Docker Hub](https://hub.docker.com/r/nvidia/cuda/)에 여러 버전의 도커 이미지가 있는데 [11.2.0-cudnn8-devel-ubuntu18.04](https://gitlab.com/nvidia/container-images/cuda/blob/master/dist/11.2.0/ubuntu18.04-x86_64/devel/cudnn8/Dockerfile) 를 선택해서 도커 이미지를 생성합니다.
+* [nvidia/cuda - Docker Hub](https://hub.docker.com/r/nvidia/cuda/)에 여러 버전의 도커 이미지가 있는데 CUDA 10.0버전을 선택합니다. 
 
-이용한 [Dockerfile](../dockerfiles/11.2.0-cudnn8-devel-ubuntu18.04/Dockerfile)은
+* 현시점에서 최신 버전인 `CUDA 11.2.-devel`을 써봤지만 호환성 이슈가 발생했습니다.
+  * 이를 해결하기 위해 참고한 문서에서 CUDA 10.0버전을 이용했습니다.
+  * 이 문서를 참고해서 NVIDIA 1080이 탑재된 데스크탑 환경에 설치해본 결과 텐서플로 등에서 성공적으로 GPU를 쓸 수 있었습니다.
+  * NVIDIA 1080 두 장이 탑재된 다른 데스크탑 환경에도 설치했고 성공했습니다.
 
-```dockerfile
-ARG IMAGE_NAME
-FROM ${IMAGE_NAME}:11.2.0-devel-ubuntu18.04
-LABEL maintainer "NVIDIA CORPORATION <cudatools@nvidia.com>"
 
-ENV CUDNN_VERSION 8.1.0.77
 
-LABEL com.nvidia.cudnn.version="${CUDNN_VERSION}"
+`TAGS`의 검색창에 10.0을 입력한 다음
+<img src='images/nvidia_hub-nvidia_cuda-tags-10_0-search_results-ubuntu18_04.png'>
 
-RUN apt update && apt install -y --no-install-recommends \
-    libcudnn8=$CUDNN_VERSION-1+cuda11.2 \
-    libcudnn8-dev=$CUDNN_VERSION-1+cuda11.2 \
-    && apt-mark hold libcudnn8 && \
-    rm -rf /var/lib/apt/lists/*
-```
+검색결과에서 `10.0-devel-ubuntu18.04`를 선택합니다.
 
-과 같습니다.
-
-텍스트 에디터로 위의 Dockerfile을 생성합니다.
-
-```bash
-$ nano Dockerfile
-```
-
+### 명령어로 다운 받기
 도커 허브에 로그인해서
 
 ```bash
@@ -43,17 +31,16 @@ Login Succeeded
 $
 ```
 
-NVIDIA의 CUDA와 CUDNN을 지원하는 도커 이미지를 빌드합니다.
-
 ```bash
-$ docker build -t baseimage-darknet --build-arg IMAGE_NAME='nvidia/cuda' .
+$ docker pull nvidia/cuda:10.0-devel-ubuntu18.04
 ```
 
-혹은
-
+### 확인하기
 ```bash
-$ export IMAGE_NAME='nvidia/cuda'
-$ docker build -t baseimage-darknet --build-arg IMAGE_NAME=$IMAGE_NAME .
+$ docker images
+REPOSITORY   TAG                     IMAGE ID      CREATED       SIZE
+nvidia/cuda  10.0-devel-ubuntu18.04  04156a673e4e  2 months ago  2.24GB
+$
 ```
 
 ## 상세 설명
@@ -265,3 +252,38 @@ https://www.nvidia.co.kr/content/apac/event/kr/deep-learning-day-2017/dli-1/Dock
 * [pdf file](../pdf_files/Docker-User-Guide-17-08_v1_NOV01_Joshpark.pdf)
 
 * 엇 알고 보니 아시는 분들이 만드신 자료! 반가워서 파일을 keep해봅니다.
+
+## 부록
+CUDA 11.2.0의 경우 다음과 같습니다.
+[11.2.0-cudnn8-devel-ubuntu18.04](https://gitlab.com/nvidia/container-images/cuda/blob/master/dist/11.2.0/ubuntu18.04-x86_64/devel/cudnn8/Dockerfile) 를 선택해서 도커 이미지를 생성합니다.
+
+이용한 [Dockerfile](../dockerfiles/11.2.0-cudnn8-devel-ubuntu18.04/Dockerfile)은
+
+```dockerfile
+ARG IMAGE_NAME
+FROM ${IMAGE_NAME}:11.2.0-devel-ubuntu18.04
+LABEL maintainer "NVIDIA CORPORATION <cudatools@nvidia.com>"
+
+ENV CUDNN_VERSION 8.1.0.77
+
+LABEL com.nvidia.cudnn.version="${CUDNN_VERSION}"
+
+RUN apt update && apt install -y --no-install-recommends \
+    libcudnn8=$CUDNN_VERSION-1+cuda11.2 \
+    libcudnn8-dev=$CUDNN_VERSION-1+cuda11.2 \
+    && apt-mark hold libcudnn8 && \
+    rm -rf /var/lib/apt/lists/*
+```
+
+NVIDIA의 CUDA와 CUDNN을 지원하는 도커 이미지를 빌드합니다.
+
+```bash
+$ docker build -t baseimage-darknet --build-arg IMAGE_NAME='nvidia/cuda' .
+```
+
+혹은
+
+```bash
+$ export IMAGE_NAME='nvidia/cuda'
+$ docker build -t baseimage-darknet --build-arg IMAGE_NAME=$IMAGE_NAME .
+```

@@ -2,10 +2,6 @@
 
 # OpenCV
 
-
-
-
-
 물체를 트래킹하거나 딥러닝을 이용한 객체 탐색을 할 때 OpenCV를 쓸 수 있습니다.
 
 <img src='images/opencv-track_object_animated.gif'>
@@ -18,4 +14,3 @@
 
 
 
-https://eehoeskrap.tistory.com/355
