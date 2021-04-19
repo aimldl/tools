@@ -60,6 +60,12 @@ Using `\` won't work.
 
 ```bash
 $ echo "digraph G {Router->Switch1; Router->Switch2; Switch1->Load_Balancer\(Virtual\); Load_Balancer\(Virtual\)->Master1; Load_Balancer\(Virtual\)->Master2; Load_Balancer\(Virtual\)->Master3; Switch2->Worker1; Switch2->Worker2; Switch2->Worker3;}" | dot -Tpng > graphvia-physical_structure_with_nodes_and_virtual_load_balancer.png
-Error: <stdin>: syntax error in line 1 near '\'
+Error: <stdin>:<img src='images/physical_structure_with_nodes.png'> syntax error in line 1 near '\'
 $
 ```
+
+
+
+<img src='images/logical_structure_with_nodes.png'>
+
+TODO
