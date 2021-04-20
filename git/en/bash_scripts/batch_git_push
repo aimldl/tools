@@ -2,6 +2,8 @@
 # batch_git_push
 #   This script runs `git push` for all sub-directories of the target repositories.
 #
+# * Rev.8: 2021-04-05 (Mon)
+# * Rev.7: 2021-01-25 (Mon)
 # * Rev.6: 2021-01-11 (Mon)
 # * Rev.5: 2020-12-15 (Tue)
 # * Rev.4: 2020-12-09 (Wed)
@@ -38,7 +40,7 @@
 #   Note each value is delimited by a white space.
 
 # You may change this part
-public_repositories="aimldl.github.io coding environments pytorch tensorflow tools topics_in"
+public_repositories="aimldl.github.io coding environments pytorch tensorflow keras tools topics_in"
 private_repositories="tests projects"
 target_repositories="${public_repositories} ${private_repositories}"
 # You may change this part
