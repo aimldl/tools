@@ -50,8 +50,24 @@ Open `Anaconda PowerShell Promt` and run:
   * The installation process is like other Windows programs.
  <img src='images/win10-installation-basic_miktex_installer.png'>
  
- 
-## Memo
+###### Memo
 Later I found these articles.
 Google search: nbconvert failed: xelatex not found on PATH, if you have not installed xelatex you may need to do so. Find further instructions at https://nbconvert.readthedocs.io/en/latest/install.html#installing-tex.
 * [jupyter notebook pdf 변환 :: nbconvert failed: xelatex not found on PATH 에러](https://hoho325.tistory.com/14)
+
+#### Continued
+I followed these steps and was able to save PDF.
+<img src='images/jupyter_notebook-configure_pdf_conversion-1.png'>
+<img src='images/jupyter_notebook-configure_pdf_conversion-2.png'>
+<img src='images/jupyter_notebook-configure_pdf_conversion-3.png'>
+<img src='images/jupyter_notebook-configure_pdf_conversion-4.png'>
+
+The problem is the converted .pdf file can't be opened at github AND by Acrobat Reader.
+
+Something must be wrong.
+<img src='images/jupyter_notebook-configure_pdf_conversion-5.png'>
+
+TODO: Fix the problem.
+
+<img src='images/'>
+<img src='images/'>
