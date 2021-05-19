@@ -57,6 +57,7 @@ Google search: nbconvert failed: xelatex not found on PATH, if you have not inst
 
 #### Continued
 I followed these steps and was able to save PDF.
+
 <img src='images/jupyter_notebook-configure_pdf_conversion-1.png'>
 <img src='images/jupyter_notebook-configure_pdf_conversion-2.png'>
 <img src='images/jupyter_notebook-configure_pdf_conversion-3.png'>
@@ -67,7 +68,7 @@ The problem is the converted .pdf file can't be opened at github AND by Acrobat 
 Something must be wrong.
 <img src='images/jupyter_notebook-configure_pdf_conversion-5.png'>
 
-TODO: Fix the problem.
+TODO: Fix the problem. Recall I unchecked when xelatex were installed. The blog said to hit `Install` about 13 times. But I hit three times and uncheck `Always ask...`. Was it the reason?
 
 <img src='images/'>
 <img src='images/'>
