@@ -51,3 +51,7 @@ Open `Anaconda PowerShell Promt` and run:
  <img src='images/win10-installation-basic_miktex_installer.png'>
  
  
+## Memo
+Later I found these articles.
+Google search: nbconvert failed: xelatex not found on PATH, if you have not installed xelatex you may need to do so. Find further instructions at https://nbconvert.readthedocs.io/en/latest/install.html#installing-tex.
+* [jupyter notebook pdf 변환 :: nbconvert failed: xelatex not found on PATH 에러](https://hoho325.tistory.com/14)
