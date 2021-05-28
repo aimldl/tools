@@ -38,11 +38,11 @@
 #   Note each value is delimited by a white space.
 
 # You may change this part
-target_repositories="aimldl.github.io coding environments pytorch tensorflow tools topics_in tests projects"
+target_repositories="aimldl.github.io coding environments pytorch tensorflow tools topics_in cv tests projects"
 # You may change this part
 
 # Don't change this part
-print_and_run() {
+run() {
   COMMAND=$1
   echo $COMMAND
   eval $COMMAND
@@ -51,7 +51,7 @@ print_and_run() {
 dir_root=${PWD}
 MSG=${1:-"Add new stuff by batch_git_push"}
 for repository in ${target_repositories}; do
-  print_and_run "cd ${dir_root}/${repository}"
-  print_and_run "git add . && git commit -m '${MSG}' && git push"
+  run "cd ${dir_root}/${repository}"
+  run "git add . && git commit -m '${MSG}' && git push"
 done
 # Don't change this part

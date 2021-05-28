@@ -36,11 +36,11 @@
 #   Note each value is delimited by a white space.
 
 # You may change this part
-target_repositories="aimldl.github.io coding environments pytorch tensorflow tools topics_in tests projects"
+target_repositories="aimldl.github.io coding environments pytorch tensorflow tools topics_in cv tests projects"
 # You may change this part
 
 # Don't change this part
-print_and_run() {
+run() {
   COMMAND=$1
   echo $COMMAND
   eval $COMMAND
@@ -48,7 +48,7 @@ print_and_run() {
 
 dir_root=${PWD}
 for repository in ${target_repositories}; do
-  print_and_run "cd ${dir_root}/${repository}"  # cd to the repository's directory
-  print_and_run "git pull"                      # pull from the repository
+  run "cd ${dir_root}/${repository}"  # cd to the repository's directory
+  run "git pull"                      # pull from the repository
 done
 # Don't change this part
