@@ -2,6 +2,7 @@
 # batch_git_clone
 #   This script run `git clones` for all sub-directories of the target repositories.
 #
+# * Rev.7: 2021-05-31 (Mon)
 # * Rev.6: 2021-05-27 (Thu)
 # * Rev.5: 2020-12-15 (Tue)
 # * Rev.4: 2020-12-09 (Wed)
@@ -41,7 +42,7 @@
 
 # You may change this part
 github_user_id='aimldl'
-target_repositories="aimldl.github.io coding environments pytorch tensorflow tools topics_in cv tests projects"
+target_repositories="aimldl.github.io coding cv environments pytorch tensorflow tools topics_in"
 # You may change this part
 
 # Don't change this part
