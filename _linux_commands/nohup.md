@@ -3,7 +3,7 @@
 * Draft: 2019-12-27 (Fri)
 
 ## nohup
-Run another command, ignoring hangup signals. That is, nohuo means no hangup. Even when the terminal is closed or the session is disconnected, another command keeps running. For example, when you log out or exit the shell, another command keeps running in the background.
+Run another command, ignoring hangup signals. That is, nohup means no hangup. Even when the terminal is closed or the session is disconnected, another command keeps running. For example, when you log out or exit the shell, another command keeps running in the background.
 
 [AWS EC2 Running background process](https://medium.com/@brunoeleodoro96/aws-ec2-running-background-process-be141feeb2fb)
 ```
