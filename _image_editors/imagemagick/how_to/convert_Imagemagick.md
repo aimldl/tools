@@ -1,4 +1,5 @@
-convert_Imagemagick.md
+* Rev.1: 2021-07-15 (Thu)
+* Draft: 2021-05-26 (Wed)
 
 ## convert (Imagemagick)
 
@@ -9,10 +10,6 @@ This page is a summary of the above article in addition to some Bash scripts.
 Refer also to the following article.
 * [Batch Resize Images using Linux Command Line and Imagemagick](https://guides.wp-bullet.com/batch-resize-images-using-linux-command-line-and-imagemagick/)
 
-### Installation
-```bash
-$ sudo apt-get install imagemagick
-```
 ### Usage
 Convert to other format.
 ```bash
@@ -75,4 +72,4 @@ done
 ```
 
 #### Lower the resolution of an iPhone screencaptured image
-To learn about a Bash script that bath-process all screencaptures images file, refer to [iphone2web](https://github.com/aimldl/computing_environments/blob/master/bash/scripts/iphone2web.md).
+To learn about a Bash script that bath-process all screencaptures images file, refer to [iphone2web](https://github.com/aimldl/coding/blob/06a6b9aaf1b11b5537fb421b7439ae62beb1ddae/bash_scripting/en/bash_scripts/iphone2web.md).
