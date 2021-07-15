@@ -17,3 +17,4 @@ $ ls -p | grep -v / | xargs -I {} convert {} -quality 60 output/{}
 ```
 
 spits errors
+
