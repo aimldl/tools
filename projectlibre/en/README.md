@@ -39,3 +39,7 @@
 
 Quick start: [ProjectLibre : How to introduction demo ( Project Management Software )](https://youtu.be/9xwR4JCBaIU) [12:27]
 
+## Next
+
+[How to Install `projectlibre` on Ubuntu Linux](INSTALL-ubuntu.md)
+
