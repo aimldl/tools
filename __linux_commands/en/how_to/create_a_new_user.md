@@ -6,9 +6,20 @@
 ## Summary
 ```bash
 NEW_USER='k8smaster'
+
+# Create a new user account
 sudo adduser $NEW_USER
+
+# Verify the new account exists in `/etc/passwd`
+cat /etc/passwd | grep "^$NEW_USER"
+
 # Enter password twice
 sudo usermod -aG sudo $NEW_USER
+
+# Verify the sudo privilege
+sudo visudo
+## or equivalently
+sudo nano /etc/sudoers
 ```
 
 ## Example: create a new user `k8smaster`
@@ -96,8 +107,25 @@ root    ALL=(ALL:ALL) ALL
 
 # See sudoers(5) for more information on "#include" directives:
 #includedir /etc/sudoers.d
-
 ```
+
+The new user account should be ready by now. Log out the current accout and log in with the new user account.
+
+## Verification with GUI
+An alternative way to verify the new account is to use the GUI.
+Click on the top right corner
+
+<img src='images/ubuntu_18_04-top_right_corner.png'>
+
+Click the `Settings` icon.
+
+<img src='images/ubuntu_18_04-top_right_corner-lower_triangle_sign.png'>
+
+In the `Settings` window, click `Details` in the bottom of the menu bar and then click the `Users` menu.
+
+You will see the new account as follows.
+
+<img src='images/ubuntu_18_04-settings-details-users.png'>
 
 ## References
 
