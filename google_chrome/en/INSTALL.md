@@ -1,3 +1,4 @@
+* Rev.3: 2021-10-12 (Mon)
 * Rev.2: 2020-10-12 (Mon)
 * Rev.1: 2020-06-23 (Tue)
 * Draft: 2019-03-02 (Sat)
@@ -30,12 +31,6 @@ $ google-chrome
 ```
 
 <img src="images/google_chrome-initial_launch_window.png">
-
-## How to uninstall Google Chrome
-
-'''bash
-$ sudo apt purge google-chrome-stable
-'''
 
 ## References
 
