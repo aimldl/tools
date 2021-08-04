@@ -113,11 +113,12 @@ The new user account should be ready by now. Log out the current accout and log 
 
 ## Verification with GUI
 An alternative way to verify the new account is to use the GUI.
-Click on the top right corner
+
+Click ▼ on the top right corner.
 
 <img src='images/ubuntu_18_04-top_right_corner.png'>
 
-Click the `Settings` icon.
+Click the `Settings` icon (bottom leftmost).
 
 <img src='images/ubuntu_18_04-top_right_corner-lower_triangle_sign.png'>
 
