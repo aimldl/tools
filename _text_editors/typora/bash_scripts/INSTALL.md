@@ -1,3 +1,4 @@
+* Rev.4: 2021-08-04 (Wed)
 * Rev.3: 2020-06-24 (Wed)
 * Rev.2: 2020-03-28 (Sat)
 * Rev.1: 2020-03-24 (Tue)
@@ -59,23 +60,6 @@ typora: command not found
 $
 ```
 
-## Uninstall Typora from Ubuntu Linux
-```bash
-$ sudo apt remove typora
-$ sudo apt autoremove
-```
-For example, remove typora from Ubuntu 18.04 (on an EC2 instance)
-```bash
-$ sudo apt remove typora
-Reading package lists... Done
-  ...
-Do you want to continue? [Y/n] y
-  ...
-Processing triggers for mime-support (3.60ubuntu1) ...
-$ sudo apt autoremove
-  ...
-$
-```
 ## Install Typora on Windows
 Download the installation file at https://typora.io/#windows. For Windows 10 (64bit), click (x64).
 <img src="images/typora-download-windows.png">
