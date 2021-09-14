@@ -1,18 +1,18 @@
 * Draft: 2021-09-14 (Tue)
 
-# Flow Diagram Creator
+# Flow Chart Creator
 
 Google search: flowchart creator
 * What is the best program to create a flowchart?
 
 > **The 7 Best Flowchart Software of 2021**
 >
-> - Best Overall: Lucidchart.
-> - Best for Beginners: Gliffy.
+> - Best Overall: [Lucidchart](https://www.lucidchart.com/pages/)
+> - Best for Beginners: [Gliffy](https://www.gliffy.com/)
 > - Best Value: SmartDraw.
 > - Best for Advanced Features: Edraw Max.
 > - Best for Integration: Cacoo.
-> - Best for Collaborating: Creately.
+> - Best for Collaborating: [Creately](https://creately.com/)
 > - Best for Mac: OmniGraffle.
 >
 > Source: [The 7 Best Flowchart Software of 2021 - Investopedia](https://www.investopedia.com/best-flowchart-software-5085558)
