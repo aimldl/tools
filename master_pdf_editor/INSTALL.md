@@ -1,13 +1,22 @@
+* Rev.2: 2021-09-25 (Sat)
 * Rev.1: 2021-01-12 (Tue)
 * Draft: 2020-12-17 (Thu)
 
 # 마스터 PDF 에디터 (Master PDF Editor) 설치하는 방법
+마스터 PDF 에디터 ([Master PDF Editor](https://code-industry.net/masterpdfeditor/) )
 
-마스터 PDF 에디터 ([Master PDF Editor](https://code-industry.net/masterpdfeditor/) )는 리눅스, 윈도우즈 맥OS를 지원합니다.
+## 다운로드
+[Download Master PDF Editor for macOS, Windows and Linux](https://code-industry.net/get-masterpdfeditor/)
 
-## 우분투 리눅스에 설치하기
+### 지원OS
+* [Windows (32 & 64 bit)](https://code-industry.net/public/MasterPDFEditor-setup.exe)
+* [Linux](https://code-industry.net/free-pdf-editor/)
+* [macOS](https://code-industry.net/public/MasterPDFEditor.dmg)
 
-### 요약
+윈도우즈 및 맥OS의 설치는 간단합니다. 위의 다운로드 링크로 설치파일을 받은 다음 일반적인 설치 절차를 거치면 됩니다. 아래에는 리눅스 설치 절차 및 명령어를 정리합니다.
+
+### 우분투 리눅스에 설치하기
+#### 요약
 
 1. 설치 파일 (예: `master-pdf-editor-5.6.80-qt5.x86_64.deb`)를 홈페이지에서 다운로드 받습니다.
 
@@ -17,7 +26,7 @@
    $ sudo dpkg -i master-pdf-editor-5.6.80-qt5.x86_64.deb 
    ```
 
-### 1. 설치 파일 다운로드 하기
+#### 1. 설치 파일 다운로드 하기
 
 Step 1. [Downloads](https://code-industry.net/get-masterpdfeditor/)에 가서 [Download Master PDF Editor for Linux](https://code-industry.net/free-pdf-editor/)를 클릭합니다.
 
@@ -31,7 +40,7 @@ Step 3. `Download Master PDF Editor for Ubuntu` 버튼을 클릭합니다.
 
 (밑에 나오는 32 bit 혹은 64bit에 현혹되지 말고) 오렌지색 버튼을 클릭하면 `master-pdf-editor-5.6.80-qt5.x86_64.deb와 같은 `.deb파일이 다운로드 됩니다.
 
-### 터미널에서 아래 명령어를 실행해서 설치합니다.
+#### 터미널에서 아래 명령어를 실행해서 설치합니다.
 
 터미널을 열어, 다운로드 폴더에 이동한 후, 아래 명령어를 실행합니다.
 
@@ -45,7 +54,7 @@ $ sudo dpkg -i master-pdf-editor-5.6.80-qt5.x86_64.deb
 
 프로그램을 시작하려면 아이콘을 클릭하세요.
 
-### `libqt5printsupport5` 의존성 에러 해결
+#### `libqt5printsupport5` 의존성 에러 해결
 
 만약 설치 명령어를 실행했을 때 다음처럼 의존성 에러가 발생한다면
 
