@@ -30,7 +30,8 @@ TODO: reformat the following table which is not identical to the table in the or
 | Bullet Lists        | `* Item * Item - Item - Item`                                | ItemItemItemItem                                             |
 | Numbered Lists      | `1. Item 2. Item`                                            | ItemItem                                                     |
 | Mixed Lists         | `1. Item 2. Item   * Mixed   * Mixed   3. Item`              | ItemItemMixedMixedItem                                       |
-| Task Lists    | `- [ ] Unfinished task  - [x] Completed task`              | ☐ Unfinished task  ☑ Completed task                                     |
+| Task Lists          | `- [ ] Unfinished task`                                      | ☐ Unfinished task.                                           |
+|                     | `- [x] Completed task`                                       | ☑ Completed task                                             |
 | Blockquotes         | `> Quoted text. > > Quoted quote. > * Quoted  > * List`      | Quoted text.Quoted quote.QuotedList                          |
 | Preformatted        | `  Begin each line with   two spaces or more to   make text look  e x a c t l y   like  you  type i  t.` | `Begin each line with  two spaces or more to  make text look e x a c t l y  like  you  type i t.` |
 | Code                | ``This is code``                                             | `This is code`                                               |
