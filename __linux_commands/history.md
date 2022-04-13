@@ -1,6 +1,6 @@
 * Rev.1:2022-04-13 (Wed)
 * Draft:2021-05-13 (Thu)
-* 
+ 
 # history
 
 ## How to Print History Command Without Line Numbers
