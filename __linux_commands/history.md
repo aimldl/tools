@@ -26,6 +26,7 @@ or
 $ history | cut -d ' ' -f 4-
 ```
 Note there exists a space in -d ' '.
+
 Source: [Linux Print History Command Without Line Numbers](https://www.poftut.com/linux-history-command-without-line-numbers/), 2016-09-15, İsmail Baydan
 
 ### Option 3. Use the awk command
