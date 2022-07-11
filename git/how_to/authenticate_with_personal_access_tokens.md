@@ -36,6 +36,8 @@ Step 3. [Personal access tokens](https://github.com/settings/tokens) 메뉴를 �
 Step 4. `Generate new token`을 클릭합니다.
 
 Step 5. 참고 문서의 내용을 따라서 토큰을 생성합니다. 
+<img src='images/token_scopes.gif'>
+source: [Github Token Authentication 설정하기](https://geoseong.github.io/docs/scm/git/github-token-authentication/)
 
 * [Git\] 개인 액세스 토큰을 사용하여 사용자 인증 진행하기 - JooTC](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjN-t6cu_PwAhXR62EKHQmnDvgQFjAAegQIAxAD&url=https%3A%2F%2Fjootc.com%2Fp%2F201905122828&usg=AOvVaw0GqCmek1W7-uBL0fOKaj3j)
 
