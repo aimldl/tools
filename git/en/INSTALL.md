@@ -1,4 +1,3 @@
-##### aimldl/computing_environments/git/INSTALL.md
 * Rev.2: 2020-03-03 (Tue)
 * Rev.1: 2019-11-10 (Sun)
 * Draft: 2019-07-08 (Mon)
