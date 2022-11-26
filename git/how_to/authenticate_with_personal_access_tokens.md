@@ -29,9 +29,9 @@ Step 1. GitHub 홈페이지에 로그인합니다.
 
 Step 2. Settings > Developer settings 페이지로 이동합니다.
 
-<img src='images/github-settings-developer_settings-personal_access_tokens.png'>
+Step 3. [Personal access tokens](https://github.com/settings/tokens) > Tokens (classic) 메뉴를 클릭합니다.
 
-Step 3. [Personal access tokens](https://github.com/settings/tokens) 메뉴를 클릭합니다.
+<img src='images/github-settings-developer_settings-personal_access_tokens_tokens_classic.png'>
 
 Step 4. `Generate new token`을 클릭합니다.
 
