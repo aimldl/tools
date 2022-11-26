@@ -11,9 +11,6 @@ Repeating the same set of commands to clone, pull, and push multiple repositorie
 
 ## Configuration
 Change two config files for you:
-    * github_user_id.cfg
-    * target_repositories.cfg
-
 * github_user_id.cfg should include your GitHub ID.
 * target_repositories.cfg should include your target repositories delimited by space.
 
@@ -25,10 +22,14 @@ Say your target repositories are:
 * https://github.com/your_id/my_repository_n
 
 github_user_id.cfg
+```
 your_id
-
+```
 target_repositories.cfg
+```
 my_repository_1 my_repository_2 ... my_repository_n
+```
+Note each target repo is delimited by space.
 
 ## How to use the `batch_git_command` scripts
 ### Important
