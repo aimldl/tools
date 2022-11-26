@@ -22,7 +22,7 @@ $
 
 ## Solution
 
-`Personal access token`을 발급받아서 `Password`에 입력하면 기존과 동일하게 동작합니다.
+`Personal access token`을 발급받아서 `Password`에 발급받은 token을 비밀번호처럼 입력하면 됩니다.
 
 ### Steps
 
