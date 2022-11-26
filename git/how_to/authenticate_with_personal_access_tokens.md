@@ -37,6 +37,7 @@ Step 3. [Personal access tokens](https://github.com/settings/tokens) > Tokens (c
 Step 4. `Generate new token`을 클릭합니다.
 
 Step 5. GitHub mobile로 Authentication을 진행합니다.
+
 Step 6. 토큰의 범위를 설정한 후
 
 <img src='images/token_scopes.png'>
