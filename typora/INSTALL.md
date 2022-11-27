@@ -1,6 +1,8 @@
 # Installing Typora
 Typora used to be free, but it needs to be purchased now.
 
+<img src='images/typora-download.png'>
+
 ## Ubuntu Linux
 ```bash
 # sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
