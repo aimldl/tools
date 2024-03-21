@@ -1,0 +1,44 @@
+#!/bin/bash
+# cat_personal_access_token
+#   This script run `cat personal_access_token` to print your personal access token
+#   You can copy the printed personal access token and paste when you log into your Git account.
+#
+# * Draft: 2024-03-21 (Thu)
+#
+# Prerequisites
+#   * Create a personal access token for your Git account.
+#   * Save your personal access token in a more or like secure location.
+#
+# Usage
+#   $ chmod +x cat_personal_access_token
+#   $ ./cat_personal_access_token
+#
+# An example to save your personal access token
+#   Assume the directory git is created and all files (batch*, *.cfg files) are copied. 
+#   $ cd ~/git
+#   $ nano personal_access_token-google_cloud-argolis-expires_on_2025-01-01
+#   # copy & paste the personal access token to this file, save and exit.
+#   $ 
+# Don't change part this
+#   https://stackoverflow.com/questions/9146305/save-a-text-file-in-a-variable-in-bash
+TARGET_REPOSITORIES=$(<target_repositories.cfg)
+#TARGET_REPOSITORIES="certificates environments tools"  # Debug
+echo "TARGET_REPOSITORIES: $TARGET_REPOSITORIES"
+#exit 0  # Debug
+
+run() {
+  COMMAND=$1
+  echo $COMMAND
+  eval $COMMAND
+}
+
+#GITHUB_USER_ID='aimldl'  # Debug
+GITHUB_USER_ID=$(<github_user_id.cfg)
+echo "GITHUB_USER_ID=$GITHUB_USER_ID"
+#exit 0  # Debug
+
+# Don't change this part
+for REPOSITORY in ${TARGET_REPOSITORIES}; do
+  run "git clone https://github.com/${GITHUB_USER_ID}/${REPOSITORY}.git"
+done
+# Don't change this part
