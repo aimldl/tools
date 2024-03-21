@@ -18,27 +18,10 @@
 #   $ cd ~/git
 #   $ nano personal_access_token-google_cloud-argolis-expires_on_2025-01-01
 #   # copy & paste the personal access token to this file, save and exit.
-#   $ 
+#   $ mkdir .login
+#   $ mv personal_access_token-google_cloud-argolis-expires_on_2025-01-01 .login
+#   $ ln -s .login/personal_access_token-google_cloud-argolis-expires_on_2025-01-01 personal_access_token
+
 # Don't change part this
-#   https://stackoverflow.com/questions/9146305/save-a-text-file-in-a-variable-in-bash
-TARGET_REPOSITORIES=$(<target_repositories.cfg)
-#TARGET_REPOSITORIES="certificates environments tools"  # Debug
-echo "TARGET_REPOSITORIES: $TARGET_REPOSITORIES"
-#exit 0  # Debug
-
-run() {
-  COMMAND=$1
-  echo $COMMAND
-  eval $COMMAND
-}
-
-#GITHUB_USER_ID='aimldl'  # Debug
-GITHUB_USER_ID=$(<github_user_id.cfg)
-echo "GITHUB_USER_ID=$GITHUB_USER_ID"
-#exit 0  # Debug
-
-# Don't change this part
-for REPOSITORY in ${TARGET_REPOSITORIES}; do
-  run "git clone https://github.com/${GITHUB_USER_ID}/${REPOSITORY}.git"
-done
+cat personal_access_token
 # Don't change this part
