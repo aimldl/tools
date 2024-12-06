@@ -1,8 +1,5 @@
 # Installing Typora
-Typora used to be free, but it needs to be purchased now.
-
-<img src='images/typora-download.png'>
-
+source: https://support.typora.io/Typora-on-Linux/
 ## Installing Typora on Ubuntu Linux
 ```bash
 # sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
@@ -36,3 +33,9 @@ Processing triggers for gnome-menus (3.36.0-1ubuntu1) ...
 Processing triggers for desktop-file-utils (0.24-1ubuntu3) ...
 $
 ```
+## Note
+Typora used to be free, but it needs to be purchased now.
+
+<img src='images/typora-download.png'>
+
+
